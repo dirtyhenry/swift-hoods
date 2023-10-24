@@ -47,11 +47,16 @@ extension KeychainItem: Equatable {
 extension KeychainItem.ItemClass: CustomStringConvertible {
     var description: String {
         switch self {
-        case .genericPassword: "Generic Password"
-        case .internetPassword: "Internet Password"
-        case .certificate: "Certificate"
-        case .key: "Key"
-        case .identity: "Identity"
+        case .genericPassword:
+            return "Generic Password"
+        case .internetPassword:
+            return "Internet Password"
+        case .certificate:
+            return "Certificate"
+        case .key:
+            return "Key"
+        case .identity:
+            return "Identity"
         }
     }
 }
