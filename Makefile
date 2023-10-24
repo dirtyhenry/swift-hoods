@@ -28,6 +28,7 @@ lint:
 
 clean:
 	rm -rf .build/
+	rm -rf .BlocksTCA.doccarchive/
 
 docs:
 	xcodebuild docbuild -scheme "BlocksTCA" -derivedDataPath tmp/derivedDataPath -destination platform=macOS
