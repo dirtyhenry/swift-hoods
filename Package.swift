@@ -6,8 +6,9 @@ import PackageDescription
 let package = Package(
     name: "swift-blocks-tca",
     platforms: [
-        .macOS(.v10_15), // Limiting factor: XCTest's fulfillment
-        .iOS(.v13) // Limiting factor: XCTest's fulfillment
+        .macOS(.v10_15),
+        // Limiting factor: XCTest's fulfillment
+        .iOS(.v14) // Limiting factor: Logger
     ],
     products: [
         .library(
@@ -16,15 +17,25 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "1.2.0")
+        .package(
+            url: "https://github.com/dirtyhenry/swift-blocks",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/pointfreeco/swift-composable-architecture",
+            from: "1.2.0"
+        )
     ],
     targets: [
         .target(
             name: "BlocksTCA",
-            dependencies: [.product(
-                name: "ComposableArchitecture",
-                package: "swift-composable-architecture"
-            )]
+            dependencies: [
+                .product(name: "Blocks", package: "swift-blocks"),
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                )
+            ]
         ),
         .testTarget(
             name: "BlocksTCATests",
