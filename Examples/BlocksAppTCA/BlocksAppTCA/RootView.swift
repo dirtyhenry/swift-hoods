@@ -1,8 +1,16 @@
+import BlocksTCA
+import ComposableArchitecture
 import SwiftUI
 
 struct RootView: View {
     var body: some View {
-        Text("Swift Blocks TCA")
+        NavigationStack {
+            KeychainUIView(
+                store: Store(initialState: KeychainUIFeature.State()) {
+                    KeychainUIFeature()
+                }
+            )
+        }
     }
 }
 

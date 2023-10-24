@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "swift-blocks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dirtyhenry/swift-blocks",
+      "state" : {
+        "branch" : "main",
+        "revision" : "36eabaf22272693b63d696001041e15d1b56f45a"
+      }
+    },
+    {
       "identity" : "swift-case-paths",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",
