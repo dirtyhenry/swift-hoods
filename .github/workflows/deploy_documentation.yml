@@ -51,10 +51,10 @@ jobs:
           <!DOCTYPE html>
           <html>
             <head>
-              <meta http-equiv="refresh" content="0; url='https://dirtyhenry.github.io/swift-blocks-tca/documentation/blocks-tca/'" />
+              <meta http-equiv="refresh" content="0; url='https://dirtyhenry.github.io/swift-blocks-tca/documentation/blockstca/'" />
             </head>
            <body>
-              <p>Please follow <a href="https://dirtyhenry.github.io/swift-blocks-tca/documentation/blocks-tca/">this link</a>.</p>
+              <p>Please follow <a href="https://dirtyhenry.github.io/swift-blocks-tca/documentation/blockstca/">this link</a>.</p>
             </body>
           </html>
           EOM
