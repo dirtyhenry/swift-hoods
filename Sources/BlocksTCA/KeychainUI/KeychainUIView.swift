@@ -78,6 +78,7 @@ public struct KeychainUIView: View {
     }
 }
 
+@available(macOS 13.0, *)
 @available(iOS 16.0, *)
 struct KeychainUIView_Previews: PreviewProvider {
     static var previews: some View {

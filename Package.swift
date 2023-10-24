@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "swift-blocks-tca",
     platforms: [
-        .macOS(.v10_15),
-        // Limiting factor: XCTest's fulfillment
-        .iOS(.v14) // Limiting factor: Logger
+        // Limiting factor: os.Logger
+        .macOS(.v11),
+        .iOS(.v14)
     ],
     products: [
         .library(
