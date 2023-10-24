@@ -1,4 +1,4 @@
-    # 🧱 Blocks “The Composable Architecture” Edition
+# 🧱 Blocks “The Composable Architecture” Edition
 
 A collection of my Swift building blocks when I use [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture) _aka_ TCA.
 
