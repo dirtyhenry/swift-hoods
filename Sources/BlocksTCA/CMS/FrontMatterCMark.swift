@@ -2,26 +2,26 @@ import Blocks
 import Foundation
 import Yams
 
-struct FrontMatterCMark {
-    let frontMatter: [String: Any]
-    let cmark: String
+public struct FrontMatterCMark {
+    public let frontMatter: [String: Any]
+    public let cmark: String
 
-    var hasFrontMatter: Bool {
+    public var hasFrontMatter: Bool {
         !frontMatter.isEmpty
     }
 
-    init(frontMatter: [String: Any] = [:], cmark: String = "") {
+    public init(frontMatter: [String: Any] = [:], cmark: String = "") {
         self.frontMatter = frontMatter
         self.cmark = cmark
     }
 }
 
-class FrontMatterCMarkParser {
+public class FrontMatterCMarkParser {
     let string: String
 
     static let frontMatterDelimiter = "---"
 
-    init(data: Data) throws {
+    public init(data: Data) throws {
         guard let string = String(data: data, encoding: .utf8) else {
             throw SimpleMessageError(message: "Cannot convert data to UTF8.")
         }
@@ -29,7 +29,7 @@ class FrontMatterCMarkParser {
         self.string = string
     }
 
-    func parse() throws -> FrontMatterCMark {
+    public func parse() throws -> FrontMatterCMark {
         let lines = string.components(separatedBy: .newlines)
 
         let nonEmptyLines = lines.filter { $0.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 }
@@ -64,7 +64,7 @@ class FrontMatterCMarkParser {
     }
 }
 
-extension String {
+public extension String {
     func trimmingTrailingCharacters(in _: CharacterSet) -> String {
         guard let lastIndex = (lastIndex { !CharacterSet(charactersIn: String($0)).isSubset(of: .whitespacesAndNewlines) }) else {
             return String(self)
