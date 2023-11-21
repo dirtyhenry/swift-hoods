@@ -34,7 +34,7 @@ public struct AddKeychainItemFeature: Reducer {
                 keychainUILogger.debug(".saveButtonTapped")
                 do {
                     guard let secretData = state.secret.data(using: .utf8) else {
-                        throw SimpleError(message: "Could not convert secret to data.")
+                        throw SimpleMessageError(message: "Could not convert secret to data.")
                     }
                     try keychainGateway.addItem(account: state.account, secret: secretData)
 
