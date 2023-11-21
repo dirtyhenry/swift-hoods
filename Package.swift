@@ -23,7 +23,11 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture",
-            from: "1.2.0"
+            from: "1.4.0"
+        ),
+        .package(
+            url: "https://github.com/jpsim/Yams.git",
+            from: "5.0.6"
         )
     ],
     targets: [
@@ -34,12 +38,17 @@ let package = Package(
                 .product(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
+                ),
+                .product(
+                    name: "Yams",
+                    package: "Yams"
                 )
             ]
         ),
         .testTarget(
             name: "BlocksTCATests",
-            dependencies: ["BlocksTCA"]
+            dependencies: ["BlocksTCA"],
+            resources: [.process("Resources")]
         )
     ]
 )
