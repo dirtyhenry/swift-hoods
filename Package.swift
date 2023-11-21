@@ -47,7 +47,8 @@ let package = Package(
         ),
         .testTarget(
             name: "BlocksTCATests",
-            dependencies: ["BlocksTCA"]
+            dependencies: ["BlocksTCA"],
+            resources: [.process("Resources")]
         )
     ]
 )
