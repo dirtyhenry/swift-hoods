@@ -1,5 +1,5 @@
-@testable import Hoods
 import Foundation
+@testable import Hoods
 import XCTest
 
 class FrontMatterCMarkTests: XCTestCase {
