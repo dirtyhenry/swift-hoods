@@ -43,7 +43,7 @@ jobs:
           $(xcrun --find docc) process-archive \
             transform-for-static-hosting ../DerivedData/Build/Products/Debug/Hoods.doccarchive \
             --output-path _site \
-            --hosting-base-path /swift-blocks-tca/
+            --hosting-base-path /swift-hoods/
       - name: Create Custom index.html
         run: |
           rm _site/index.html
@@ -51,10 +51,10 @@ jobs:
           <!DOCTYPE html>
           <html>
             <head>
-              <meta http-equiv="refresh" content="0; url='https://dirtyhenry.github.io/swift-blocks-tca/documentation/hoods/'" />
+              <meta http-equiv="refresh" content="0; url='https://dirtyhenry.github.io/swift-hoods/documentation/hoods/'" />
             </head>
            <body>
-              <p>Please follow <a href="https://dirtyhenry.github.io/swift-blocks-tca/documentation/hoods/">this link</a>.</p>
+              <p>Please follow <a href="https://dirtyhenry.github.io/swift-hoods/documentation/hoods/">this link</a>.</p>
             </body>
           </html>
           EOM
