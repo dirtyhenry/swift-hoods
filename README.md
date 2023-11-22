@@ -1,19 +1,19 @@
-# 🧱 Blocks “The Composable Architecture” Edition
+# 🏘️ Hoods
 
-A collection of my Swift building blocks when I use [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture) _aka_ TCA.
+A collection of my Swift building blocks that are using few well known dependencies, such as [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture), as opposed to Blocks, my collection of dependency-free Swift code.
 
 This repository contains:
 
-- `BlocksTCA`: a **dependency-free** (other than TCA) Swift library for my development needs;
+- `Hoods`: a Swift library for my development needs;
 
 And the following examples executables/apps:
 
-- `BlocksAppTCA`: a basic App using `swift-blocks-tca` within an app.
+- `HoodsApp`: a basic App using `swift-hoods` within an app.
 
 ## Usage
 
 ```swift
-import BlocksTCA
+import Hoods
 ```
 
 ## Installation
@@ -23,18 +23,18 @@ Swift Package Manager is recommended:
 ```swift
 dependencies: [
     .package(
-        url: "https://github.com/dirtyhenry/swift-blocks-tca",
-        from: "0.1.0"
+        url: "https://github.com/dirtyhenry/swift-hoods",
+        from: "main"
     ),
 ]
 ```
 
-Next, add `Blocks` as a dependency of your test target:
+Next, add `Hoods` as a dependency of your test target:
 
 ```swift
 targets: [
     .target(name: "MyTarget", dependencies: [
-        .product(name: "BlocksTCA", package: "swift-blocks-tca")
+        .product(name: "Hoods", package: "swift-hoods")
     ])
 ]
 ```

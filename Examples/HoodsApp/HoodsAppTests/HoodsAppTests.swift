@@ -1,4 +1,4 @@
-@testable import BlocksAppTCA
+@testable import HoodsApp
 import XCTest
 
 final class BlocksAppTCATests: XCTestCase {

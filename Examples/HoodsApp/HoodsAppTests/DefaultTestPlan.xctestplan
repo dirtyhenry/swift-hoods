@@ -14,9 +14,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:BlocksAppTCA.xcodeproj",
+        "containerPath" : "container:HoodsApp.xcodeproj",
         "identifier" : "00F6F5632A66CBE50088B530",
-        "name" : "BlocksAppTCATests"
+        "name" : "HoodsAppTests"
       }
     }
   ],

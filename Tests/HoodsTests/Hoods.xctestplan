@@ -15,8 +15,8 @@
     {
       "target" : {
         "containerPath" : "container:",
-        "identifier" : "BlocksTCATests",
-        "name" : "BlocksTCATests"
+        "identifier" : "HoodsTests",
+        "name" : "HoodsTests"
       }
     }
   ],

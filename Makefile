@@ -1,5 +1,5 @@
 open: 
-	open BlocksTCA.xcworkspace
+	open Hoods.xcworkspace
 
 install:
 	bundle install
@@ -28,12 +28,12 @@ lint:
 
 clean:
 	rm -rf .build/
-	rm -rf .BlocksTCA.doccarchive/
+	rm -rf .Hoods.doccarchive/
 
 docs:
-	xcodebuild docbuild -scheme "BlocksTCA" -derivedDataPath tmp/derivedDataPath -destination platform=macOS
-	rsync -r tmp/derivedDataPath/Build/Products/Debug/BlocksTCA.doccarchive/ .BlocksTCA.doccarchive
+	xcodebuild docbuild -scheme "Hoods" -derivedDataPath tmp/derivedDataPath -destination platform=macOS
+	rsync -r tmp/derivedDataPath/Build/Products/Debug/Hoods.doccarchive/ .Hoods.doccarchive
 	rm -rf tmp/
 
 serve-docs:
-	serve --single .BlocksTCA.doccarchive
+	serve --single .Hoods.doccarchive
