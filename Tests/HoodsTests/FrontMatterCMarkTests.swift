@@ -33,7 +33,7 @@ class FrontMatterCMarkTests: XCTestCase {
         XCTAssertEqual(
             sut.cmark,
             """
-            Some markdown.
+            Some Markdown.
 
             - List item 1
             - List item 2
@@ -66,7 +66,7 @@ class FrontMatterCMarkTests: XCTestCase {
             - A metadata tag
             ---
 
-            Some markdown.
+            Some Markdown.
 
             - List item 1
             - List item 2
