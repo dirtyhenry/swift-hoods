@@ -1,6 +1,8 @@
 # 🏘️ Hoods
 
-A collection of my Swift building blocks that are using few well known dependencies, such as [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture), as opposed to Blocks, my collection of dependency-free Swift code.
+A collection of my Swift building blocks that are using few well known
+dependencies, such as [The Composable Architecture][2], as opposed to
+[Blocks][1], my collection of dependency-free Swift code.
 
 This repository contains:
 
@@ -42,3 +44,6 @@ targets: [
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+[1]: https://github.com/dirtyhenry/swift-blocks
+[2]: https://github.com/pointfreeco/swift-composable-architecture
