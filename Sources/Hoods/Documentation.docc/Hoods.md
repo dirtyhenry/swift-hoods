@@ -1,4 +1,4 @@
-# ``BlocksTCA``
+# ``Hoods``
 
 🧱 Some building blocks for my Swift adventures using The Composable Architecture.
 

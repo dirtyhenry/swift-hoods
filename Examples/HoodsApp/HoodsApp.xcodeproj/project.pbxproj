@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 004F27732AE6DF3A00D118BA /* ComposableArchitecture */; };
-		00D428992AE6DF5F00397074 /* BlocksTCA in Frameworks */ = {isa = PBXBuildFile; productRef = 00D428982AE6DF5F00397074 /* BlocksTCA */; };
-		00F6F5582A66CBE40088B530 /* BlocksAppTCAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F6F5572A66CBE40088B530 /* BlocksAppTCAApp.swift */; };
+		00D428992AE6DF5F00397074 /* Hoods in Frameworks */ = {isa = PBXBuildFile; productRef = 00D428982AE6DF5F00397074 /* Hoods */; };
+		00F6F5582A66CBE40088B530 /* HoodsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F6F5572A66CBE40088B530 /* HoodsApp.swift */; };
 		00F6F55C2A66CBE50088B530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F6F55B2A66CBE50088B530 /* Assets.xcassets */; };
 		00F6F55F2A66CBE50088B530 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F6F55E2A66CBE50088B530 /* Preview Assets.xcassets */; };
-		00F6F5692A66CBE50088B530 /* BlocksAppTCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F6F5682A66CBE50088B530 /* BlocksAppTCATests.swift */; };
+		00F6F5692A66CBE50088B530 /* HoodsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F6F5682A66CBE50088B530 /* HoodsAppTests.swift */; };
 		00F84B002A66D7B100A7EC95 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F84AFF2A66D7B100A7EC95 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,18 +22,18 @@
 			containerPortal = 00F6F54C2A66CBE40088B530 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00F6F5532A66CBE40088B530;
-			remoteInfo = BlocksAppTCA;
+			remoteInfo = HoodsApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00CC6CBA2A68425F0093300A /* DefaultTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DefaultTestPlan.xctestplan; sourceTree = "<group>"; };
-		00F6F5542A66CBE40088B530 /* BlocksAppTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocksAppTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		00F6F5572A66CBE40088B530 /* BlocksAppTCAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksAppTCAApp.swift; sourceTree = "<group>"; };
+		00F6F5542A66CBE40088B530 /* HoodsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoodsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F6F5572A66CBE40088B530 /* HoodsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodsApp.swift; sourceTree = "<group>"; };
 		00F6F55B2A66CBE50088B530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F6F55E2A66CBE50088B530 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		00F6F5642A66CBE50088B530 /* BlocksAppTCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocksAppTCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		00F6F5682A66CBE50088B530 /* BlocksAppTCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksAppTCATests.swift; sourceTree = "<group>"; };
+		00F6F5642A66CBE50088B530 /* HoodsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoodsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00F6F5682A66CBE50088B530 /* HoodsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodsAppTests.swift; sourceTree = "<group>"; };
 		00F84AFF2A66D7B100A7EC95 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		00F84B012A66DE0B00A7EC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -44,7 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */,
-				00D428992AE6DF5F00397074 /* BlocksTCA in Frameworks */,
+				00D428992AE6DF5F00397074 /* Hoods in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,8 +61,8 @@
 		00F6F54B2A66CBE40088B530 = {
 			isa = PBXGroup;
 			children = (
-				00F6F5562A66CBE40088B530 /* BlocksAppTCA */,
-				00F6F5672A66CBE50088B530 /* BlocksAppTCATests */,
+				00F6F5562A66CBE40088B530 /* HoodsApp */,
+				00F6F5672A66CBE50088B530 /* HoodsAppTests */,
 				00F6F5552A66CBE40088B530 /* Products */,
 				00F84AFC2A66D10A00A7EC95 /* Frameworks */,
 			);
@@ -71,22 +71,22 @@
 		00F6F5552A66CBE40088B530 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00F6F5542A66CBE40088B530 /* BlocksAppTCA.app */,
-				00F6F5642A66CBE50088B530 /* BlocksAppTCATests.xctest */,
+				00F6F5542A66CBE40088B530 /* HoodsApp.app */,
+				00F6F5642A66CBE50088B530 /* HoodsAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00F6F5562A66CBE40088B530 /* BlocksAppTCA */ = {
+		00F6F5562A66CBE40088B530 /* HoodsApp */ = {
 			isa = PBXGroup;
 			children = (
 				00F84B012A66DE0B00A7EC95 /* Info.plist */,
-				00F6F5572A66CBE40088B530 /* BlocksAppTCAApp.swift */,
+				00F6F5572A66CBE40088B530 /* HoodsApp.swift */,
 				00F84AFF2A66D7B100A7EC95 /* RootView.swift */,
 				00F6F55B2A66CBE50088B530 /* Assets.xcassets */,
 				00F6F55D2A66CBE50088B530 /* Preview Content */,
 			);
-			path = BlocksAppTCA;
+			path = HoodsApp;
 			sourceTree = "<group>";
 		};
 		00F6F55D2A66CBE50088B530 /* Preview Content */ = {
@@ -97,13 +97,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		00F6F5672A66CBE50088B530 /* BlocksAppTCATests */ = {
+		00F6F5672A66CBE50088B530 /* HoodsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				00F6F5682A66CBE50088B530 /* BlocksAppTCATests.swift */,
+				00F6F5682A66CBE50088B530 /* HoodsAppTests.swift */,
 				00CC6CBA2A68425F0093300A /* DefaultTestPlan.xctestplan */,
 			);
-			path = BlocksAppTCATests;
+			path = HoodsAppTests;
 			sourceTree = "<group>";
 		};
 		00F84AFC2A66D10A00A7EC95 /* Frameworks */ = {
@@ -116,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00F6F5532A66CBE40088B530 /* BlocksAppTCA */ = {
+		00F6F5532A66CBE40088B530 /* HoodsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00F6F5782A66CBE50088B530 /* Build configuration list for PBXNativeTarget "BlocksAppTCA" */;
+			buildConfigurationList = 00F6F5782A66CBE50088B530 /* Build configuration list for PBXNativeTarget "HoodsApp" */;
 			buildPhases = (
 				00F6F5502A66CBE40088B530 /* Sources */,
 				00F6F5512A66CBE40088B530 /* Frameworks */,
@@ -128,18 +128,18 @@
 			);
 			dependencies = (
 			);
-			name = BlocksAppTCA;
+			name = HoodsApp;
 			packageProductDependencies = (
 				004F27732AE6DF3A00D118BA /* ComposableArchitecture */,
-				00D428982AE6DF5F00397074 /* BlocksTCA */,
+				00D428982AE6DF5F00397074 /* Hoods */,
 			);
-			productName = BlocksAppTCA;
-			productReference = 00F6F5542A66CBE40088B530 /* BlocksAppTCA.app */;
+			productName = HoodsApp;
+			productReference = 00F6F5542A66CBE40088B530 /* HoodsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		00F6F5632A66CBE50088B530 /* BlocksAppTCATests */ = {
+		00F6F5632A66CBE50088B530 /* HoodsAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00F6F57B2A66CBE50088B530 /* Build configuration list for PBXNativeTarget "BlocksAppTCATests" */;
+			buildConfigurationList = 00F6F57B2A66CBE50088B530 /* Build configuration list for PBXNativeTarget "HoodsAppTests" */;
 			buildPhases = (
 				00F6F5602A66CBE50088B530 /* Sources */,
 				00F6F5612A66CBE50088B530 /* Frameworks */,
@@ -150,11 +150,11 @@
 			dependencies = (
 				00E1197A2A6859610075269E /* PBXTargetDependency */,
 			);
-			name = BlocksAppTCATests;
+			name = HoodsAppTests;
 			packageProductDependencies = (
 			);
-			productName = BlocksAppTCATests;
-			productReference = 00F6F5642A66CBE50088B530 /* BlocksAppTCATests.xctest */;
+			productName = HoodsAppTests;
+			productReference = 00F6F5642A66CBE50088B530 /* HoodsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00F6F54F2A66CBE40088B530 /* Build configuration list for PBXProject "BlocksAppTCA" */;
+			buildConfigurationList = 00F6F54F2A66CBE40088B530 /* Build configuration list for PBXProject "HoodsApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -192,8 +192,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00F6F5532A66CBE40088B530 /* BlocksAppTCA */,
-				00F6F5632A66CBE50088B530 /* BlocksAppTCATests */,
+				00F6F5532A66CBE40088B530 /* HoodsApp */,
+				00F6F5632A66CBE50088B530 /* HoodsAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,7 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F6F5582A66CBE40088B530 /* BlocksAppTCAApp.swift in Sources */,
+				00F6F5582A66CBE40088B530 /* HoodsApp.swift in Sources */,
 				00F84B002A66D7B100A7EC95 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F6F5692A66CBE50088B530 /* BlocksAppTCATests.swift in Sources */,
+				00F6F5692A66CBE50088B530 /* HoodsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +240,7 @@
 /* Begin PBXTargetDependency section */
 		00E1197A2A6859610075269E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00F6F5532A66CBE40088B530 /* BlocksAppTCA */;
+			target = 00F6F5532A66CBE40088B530 /* HoodsApp */;
 			targetProxy = 00E119792A6859610075269E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -368,11 +368,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BlocksAppTCA/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HoodsApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N77R86QZUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BlocksAppTCA/Info.plist;
+				INFOPLIST_FILE = HoodsApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Here is the content of NSCameraUsageDescription from Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -401,11 +401,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BlocksAppTCA/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HoodsApp/Preview Content\"";
 				DEVELOPMENT_TEAM = N77R86QZUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BlocksAppTCA/Info.plist;
+				INFOPLIST_FILE = HoodsApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Here is the content of NSCameraUsageDescription from Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -437,12 +437,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.BlocksAppTCATests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlocksAppTCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BlocksAppTCA";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoodsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoodsApp";
 			};
 			name = Debug;
 		};
@@ -457,19 +457,19 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.BlocksAppTCATests;
+				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlocksAppTCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BlocksAppTCA";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoodsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoodsApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00F6F54F2A66CBE40088B530 /* Build configuration list for PBXProject "BlocksAppTCA" */ = {
+		00F6F54F2A66CBE40088B530 /* Build configuration list for PBXProject "HoodsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00F6F5762A66CBE50088B530 /* Debug */,
@@ -478,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00F6F5782A66CBE50088B530 /* Build configuration list for PBXNativeTarget "BlocksAppTCA" */ = {
+		00F6F5782A66CBE50088B530 /* Build configuration list for PBXNativeTarget "HoodsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00F6F5792A66CBE50088B530 /* Debug */,
@@ -487,7 +487,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00F6F57B2A66CBE50088B530 /* Build configuration list for PBXNativeTarget "BlocksAppTCATests" */ = {
+		00F6F57B2A66CBE50088B530 /* Build configuration list for PBXNativeTarget "HoodsAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00F6F57C2A66CBE50088B530 /* Debug */,
@@ -515,9 +515,9 @@
 			package = 004F27722AE6DF3A00D118BA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		00D428982AE6DF5F00397074 /* BlocksTCA */ = {
+		00D428982AE6DF5F00397074 /* Hoods */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = BlocksTCA;
+			productName = Hoods;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

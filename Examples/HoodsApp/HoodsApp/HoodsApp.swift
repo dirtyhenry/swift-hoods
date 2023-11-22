@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct BlocksAppTCAApp: App {
+struct HoodsApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()

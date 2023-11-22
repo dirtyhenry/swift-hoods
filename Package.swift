@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-blocks-tca",
+    name: "swift-hoods",
     platforms: [
         // Limiting factor: os.Logger
         .macOS(.v11),
@@ -12,8 +12,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "BlocksTCA",
-            targets: ["BlocksTCA"]
+            name: "Hoods",
+            targets: ["Hoods"]
         )
     ],
     dependencies: [
@@ -32,7 +32,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "BlocksTCA",
+            name: "Hoods",
             dependencies: [
                 .product(name: "Blocks", package: "swift-blocks"),
                 .product(
@@ -46,8 +46,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "BlocksTCATests",
-            dependencies: ["BlocksTCA"],
+            name: "HoodsTests",
+            dependencies: ["Hoods"],
             resources: [.process("Resources")]
         )
     ]
