@@ -4,7 +4,7 @@
 
 ## Links
 
-- [GitHub Repo](https://github.com/dirtyhenry/swift-blocks-tca)
+- [GitHub Repository](https://github.com/dirtyhenry/swift-hoods)
 
 ## Overview
 

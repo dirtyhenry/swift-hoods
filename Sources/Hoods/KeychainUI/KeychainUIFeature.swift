@@ -2,7 +2,7 @@ import ComposableArchitecture
 import Foundation
 import os
 
-let keychainUILogger = Logger(subsystem: "swift-blocks-tca", category: "KeychainUI")
+let keychainUILogger = Logger(subsystem: "swift-hoods", category: "KeychainUI")
 
 extension KeychainItem: Identifiable {
     public var id: String {
