@@ -98,12 +98,12 @@ struct LiveKeychainGateway: KeychainGateway {
             }
 
             guard status == errSecSuccess else {
-                throw KeychainError.unhandledError(status: status)
+                throw SecurityError.unhandledError(status: status)
             }
 
             // Extract the Result
             guard let existingItems = items as? [[String: Any]] else {
-                throw KeychainError.unexpectedData
+                throw SecurityError.unexpectedData
             }
 
             try existingItems.forEach { existingItem in
@@ -111,7 +111,7 @@ struct LiveKeychainGateway: KeychainGateway {
                       let account = existingItem[kSecAttrAccount as String] as? String,
                       let label = existingItem[kSecAttrLabel as String] as? String?
                 else {
-                    throw KeychainError.unexpectedData
+                    throw SecurityError.unexpectedData
                 }
 
                 result.append(
@@ -140,7 +140,7 @@ struct LiveKeychainGateway: KeychainGateway {
         // Add the Item
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else {
-            throw KeychainError.unhandledError(status: status)
+            throw SecurityError.unhandledError(status: status)
         }
     }
 }
