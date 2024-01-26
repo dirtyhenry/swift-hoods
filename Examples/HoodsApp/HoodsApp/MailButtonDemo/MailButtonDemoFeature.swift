@@ -1,3 +1,4 @@
+import Blocks
 import ComposableArchitecture
 import Foundation
 import Hoods
@@ -10,11 +11,12 @@ struct MailButtonDemoFeature {
         @BindingState var subject: String = "Hello from the ’hoods"
         @BindingState var body: String = "Look at this awesome TCA mailer"
         var canSendMail: Bool = MFMailComposeViewController.canSendMail()
+        var errorDescription: String?
 
         var mailContent: MailButtonFeature.State {
             get {
                 MailButtonFeature.State(
-                    mailContent: MailContent(recipient: recipient, subject: subject, body: body),
+                    mailtoComponents: MailtoComponents(recipient: recipient, subject: subject, body: body),
                     canSendEmail: canSendMail
                 )
             }
@@ -34,8 +36,17 @@ struct MailButtonDemoFeature {
         Scope(state: \.mailContent, action: \.mailButton) {
             MailButtonFeature()
         }
-        Reduce { _, _ in
-            .none
+        Reduce { state, action in
+            switch action {
+            case .mailButton(.buttonTapped):
+                state.errorDescription = nil
+                return .none
+            case let .mailButton(.delegate(.shouldPresentError(error))):
+                state.errorDescription = "\(error)"
+                return .none
+            default:
+                return .none
+            }
         }
     }
 }

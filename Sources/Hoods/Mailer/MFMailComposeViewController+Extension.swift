@@ -1,11 +1,20 @@
+import Blocks
 import MessageUI
 
 extension MFMailComposeViewController {
     // MARK: Configure
 
-    func configure(with mailContent: MailContent) {
-        setToRecipients([mailContent.recipient])
-        setSubject(mailContent.subject)
-        setMessageBody(mailContent.body, isHTML: false)
+    func configure(with mailtoComponents: MailtoComponents) {
+        if let recipient = mailtoComponents.recipient {
+            setToRecipients([recipient])
+        }
+
+        if let subject = mailtoComponents.subject {
+            setSubject(subject)
+        }
+
+        if let body = mailtoComponents.body {
+            setMessageBody(body, isHTML: false)
+        }
     }
 }

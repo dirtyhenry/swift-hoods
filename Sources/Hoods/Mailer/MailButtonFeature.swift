@@ -6,19 +6,23 @@ import Foundation
 public struct MailButtonFeature {
     public struct State: Equatable {
         @PresentationState var destination: Destination.State?
-        // FIXME: replace by MailtoComponents after it is made Equatable
-        var mailContent: MailContent
+        var mailtoComponents: MailtoComponents
         var canSendEmail: Bool
 
-        public init(mailContent: MailContent, canSendEmail: Bool) {
-            self.mailContent = mailContent
+        public init(mailtoComponents: MailtoComponents, canSendEmail: Bool) {
+            self.mailtoComponents = mailtoComponents
             self.canSendEmail = canSendEmail
         }
     }
 
     public enum Action {
         case destination(PresentationAction<Destination.Action>)
+        case delegate(Delegate)
         case buttonTapped
+
+        public enum Delegate: Equatable {
+            case shouldPresentError(MailButtonError)
+        }
     }
 
     @Dependency(\.openURL) var openURL
@@ -30,23 +34,22 @@ public struct MailButtonFeature {
             switch action {
             case .buttonTapped:
                 if state.canSendEmail {
-                    state.destination = .mailCompose(MailerFeature.State(mailContent: state.mailContent))
+                    state.destination = .mailCompose(MailerFeature.State(mailtoComponents: state.mailtoComponents))
                     return .none
                 } else {
-                    guard let mailtoURL = state.mailContent.asMailtoURL() else {
-                        // TODO: Report Error
-                        return .none
+                    guard let mailtoURL = state.mailtoComponents.url else {
+                        return .send(.delegate(.shouldPresentError(.noURLFromMailtoComponents)))
                     }
 
-                    return .run { _ in
+                    return .run { send in
                         let isSuccess = await openURL(mailtoURL)
                         if !isSuccess {
-                            // TODO: Report Error
+                            await send(.delegate(.shouldPresentError(.openURLFailed)))
                         }
                     }
                 }
 
-            case .destination:
+            case .destination, .delegate:
                 return .none
             }
         }
@@ -72,5 +75,20 @@ public extension MailButtonFeature {
                 MailerFeature()
             }
         }
+    }
+}
+
+public enum MailButtonError {
+    case noURLFromMailtoComponents
+    case openURLFailed
+}
+
+// TODO: Move to Blocks maybe?
+public extension MailtoComponents {
+    init(recipient: String, subject: String, body: String) {
+        self.init()
+        self.recipient = recipient
+        self.subject = subject
+        self.body = body
     }
 }

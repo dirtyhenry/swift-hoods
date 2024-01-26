@@ -1,5 +1,8 @@
 # 🏘️ Hoods
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdirtyhenry%2Fswift-hoods%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dirtyhenry/swift-hoods)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdirtyhenry%2Fswift-hoods%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dirtyhenry/swift-hoods)
+
 A collection of my Swift building blocks that are using few well known
 dependencies, such as [The Composable Architecture][2], as opposed to
 [Blocks][1], my collection of dependency-free Swift code.
