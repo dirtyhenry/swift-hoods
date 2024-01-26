@@ -16,15 +16,23 @@ struct MailButtonDemoView: View {
                     TextField("Subject", text: viewStore.$subject)
                     TextField("Body", text: viewStore.$body)
                 }
-                MailButtonView(
-                    store: store.scope(
-                        state: \.mailContent,
-                        action: \.mailButton
-                    ),
-                    label: {
-                        Text("Send email")
+                VStack {
+                    MailButtonView(
+                        store: store.scope(
+                            state: \.mailContent,
+                            action: \.mailButton
+                        ),
+                        label: {
+                            Text("Send email")
+                        }
+                    )
+
+                    if let errorDescription = viewStore.errorDescription {
+                        Text(errorDescription)
+                            .foregroundStyle(.red)
+                            .font(.caption)
                     }
-                )
+                }
             }
         }
         .navigationTitle("Mailer")

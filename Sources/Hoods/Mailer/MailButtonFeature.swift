@@ -17,7 +17,12 @@ public struct MailButtonFeature {
 
     public enum Action {
         case destination(PresentationAction<Destination.Action>)
+        case delegate(Delegate)
         case buttonTapped
+
+        public enum Delegate: Equatable {
+            case shouldPresentError(MailButtonError)
+        }
     }
 
     @Dependency(\.openURL) var openURL
@@ -33,19 +38,18 @@ public struct MailButtonFeature {
                     return .none
                 } else {
                     guard let mailtoURL = state.mailtoComponents.url else {
-                        // TODO: Report Error
-                        return .none
+                        return .send(.delegate(.shouldPresentError(.noURLFromMailtoComponents)))
                     }
 
-                    return .run { _ in
+                    return .run { send in
                         let isSuccess = await openURL(mailtoURL)
                         if !isSuccess {
-                            // TODO: Report Error
+                            await send(.delegate(.shouldPresentError(.openURLFailed)))
                         }
                     }
                 }
 
-            case .destination:
+            case .destination, .delegate:
                 return .none
             }
         }
@@ -74,6 +78,12 @@ public extension MailButtonFeature {
     }
 }
 
+public enum MailButtonError {
+    case noURLFromMailtoComponents
+    case openURLFailed
+}
+
+// TODO: Move to Blocks maybe?
 public extension MailtoComponents {
     init(recipient: String, subject: String, body: String) {
         self.init()
