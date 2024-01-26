@@ -1,5 +1,7 @@
 import ComposableArchitecture
 @testable import Hoods
+import HoodsTestsTools
+import XCTest
 
 @MainActor
 final class MailButtonTests: XCTestCase {
@@ -7,7 +9,7 @@ final class MailButtonTests: XCTestCase {
 
     func testWhenCanSendMail() async throws {
         // Arrange a state that can send emails
-        let openURLSpy: LockIsolated<[URL]> = .init([])
+        let openURL = TestDependenciesFactory.OpenURL()
         let initialState = MailButtonFeature.State(
             mailContent: mailContent,
             canSendEmail: true
@@ -15,10 +17,7 @@ final class MailButtonTests: XCTestCase {
         let store = TestStore(initialState: initialState) {
             MailButtonFeature()
         } withDependencies: {
-            $0.openURL = OpenURLEffect { url in
-                openURLSpy.withValue { $0.append(url) }
-                return true
-            }
+            $0.openURL = openURL.effect
         }
 
         // Act: tap the send button
@@ -36,7 +35,7 @@ final class MailButtonTests: XCTestCase {
 
     func testWhenCanNotSendMail() async throws {
         // Arrange a state that can not send emails
-        let openURLSpy: LockIsolated<[URL]> = .init([])
+        let openURL = TestDependenciesFactory.OpenURL()
         let initialState = MailButtonFeature.State(
             mailContent: mailContent,
             canSendEmail: false
@@ -44,10 +43,7 @@ final class MailButtonTests: XCTestCase {
         let store = TestStore(initialState: initialState) {
             MailButtonFeature()
         } withDependencies: {
-            $0.openURL = OpenURLEffect { url in
-                openURLSpy.withValue { $0.append(url) }
-                return true
-            }
+            $0.openURL = openURL.effect
         }
 
         // Act: tap the send button
@@ -55,6 +51,6 @@ final class MailButtonTests: XCTestCase {
 
         // Assert: no state change
         // … but an open URL effect
-        XCTAssertEqual(openURLSpy.value, [URL(string: "mailto:foo@bar.tld?subject=Subject&body=Body")])
+        XCTAssertEqual(openURL.spy.value, [URL(string: "mailto:foo@bar.tld?subject=Subject&body=Body")])
     }
 }

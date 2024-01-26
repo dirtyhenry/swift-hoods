@@ -4,17 +4,23 @@ import SwiftUI
 
 struct RootView: View {
     @State var currentPath: Path?
+    @State private var preferredColumn = NavigationSplitViewColumn.detail
 
-    enum Path {
+    func navigate(to path: Path) {
+        currentPath = path
+        preferredColumn = .detail
+    }
+
+    enum Path: String {
         case keychainUI
+        case mailer
     }
 
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(preferredCompactColumn: $preferredColumn) {
             List {
-                Button("KeychainUI") {
-                    currentPath = .keychainUI
-                }
+                Button("KeychainUI") { navigate(to: .keychainUI) }
+                Button("Mailer") { navigate(to: .mailer) }
             }
         } detail: {
             switch currentPath {
@@ -22,6 +28,12 @@ struct RootView: View {
                 KeychainUIView(
                     store: Store(initialState: KeychainUIFeature.State()) {
                         KeychainUIFeature()
+                    }
+                )
+            case .mailer:
+                MailButtonDemoView(
+                    store: Store(initialState: MailButtonDemoFeature.State()) {
+                        MailButtonDemoFeature()
                     }
                 )
             case nil:

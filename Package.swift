@@ -14,6 +14,10 @@ let package = Package(
         .library(
             name: "Hoods",
             targets: ["Hoods"]
+        ),
+        .library(
+            name: "HoodsTestsTools",
+            targets: ["HoodsTestsTools"]
         )
     ],
     dependencies: [
@@ -45,9 +49,18 @@ let package = Package(
                 )
             ]
         ),
+        .target(
+            name: "HoodsTestsTools",
+            dependencies: [
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                )
+            ]
+        ),
         .testTarget(
             name: "HoodsTests",
-            dependencies: ["Hoods"],
+            dependencies: ["Hoods", "HoodsTestsTools"],
             resources: [.process("Resources")]
         )
     ]
