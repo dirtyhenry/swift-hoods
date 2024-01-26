@@ -6,12 +6,11 @@ import Foundation
 public struct MailButtonFeature {
     public struct State: Equatable {
         @PresentationState var destination: Destination.State?
-        // FIXME: replace by MailtoComponents after it is made Equatable
-        var mailContent: MailContent
+        var mailtoComponents: MailtoComponents
         var canSendEmail: Bool
 
-        public init(mailContent: MailContent, canSendEmail: Bool) {
-            self.mailContent = mailContent
+        public init(mailtoComponents: MailtoComponents, canSendEmail: Bool) {
+            self.mailtoComponents = mailtoComponents
             self.canSendEmail = canSendEmail
         }
     }
@@ -30,10 +29,10 @@ public struct MailButtonFeature {
             switch action {
             case .buttonTapped:
                 if state.canSendEmail {
-                    state.destination = .mailCompose(MailerFeature.State(mailContent: state.mailContent))
+                    state.destination = .mailCompose(MailerFeature.State(mailtoComponents: state.mailtoComponents))
                     return .none
                 } else {
-                    guard let mailtoURL = state.mailContent.asMailtoURL() else {
+                    guard let mailtoURL = state.mailtoComponents.url else {
                         // TODO: Report Error
                         return .none
                     }
@@ -72,5 +71,14 @@ public extension MailButtonFeature {
                 MailerFeature()
             }
         }
+    }
+}
+
+public extension MailtoComponents {
+    init(recipient: String, subject: String, body: String) {
+        self.init()
+        self.recipient = recipient
+        self.subject = subject
+        self.body = body
     }
 }

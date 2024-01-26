@@ -1,3 +1,4 @@
+import Blocks
 import ComposableArchitecture
 import Foundation
 import Hoods
@@ -14,7 +15,7 @@ struct MailButtonDemoFeature {
         var mailContent: MailButtonFeature.State {
             get {
                 MailButtonFeature.State(
-                    mailContent: MailContent(recipient: recipient, subject: subject, body: body),
+                    mailtoComponents: MailtoComponents(recipient: recipient, subject: subject, body: body),
                     canSendEmail: canSendMail
                 )
             }

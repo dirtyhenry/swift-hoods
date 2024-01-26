@@ -1,3 +1,4 @@
+import Blocks
 import ComposableArchitecture
 import SwiftUI
 
@@ -37,7 +38,7 @@ public struct MailButtonView<Label: View>: View {
     MailButtonView(
         store: Store(
             initialState: MailButtonFeature.State(
-                mailContent: MailContent(
+                mailtoComponents: MailtoComponents(
                     recipient: "foo@bar.tld",
                     subject: "Hello John Doe",
                     body: "How are you?"

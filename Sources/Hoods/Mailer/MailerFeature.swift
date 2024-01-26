@@ -1,3 +1,4 @@
+import Blocks
 import ComposableArchitecture
 import Foundation
 import MessageUI
@@ -5,7 +6,7 @@ import MessageUI
 @Reducer
 public struct MailerFeature {
     public struct State: Equatable {
-        var mailContent: MailContent
+        var mailtoComponents: MailtoComponents
     }
 
     public enum Action {

@@ -14,7 +14,7 @@ struct MailerView: UIViewControllerRepresentable {
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = context.coordinator
         composer.delegate = context.coordinator
-        composer.configure(with: viewStore.mailContent)
+        composer.configure(with: viewStore.mailtoComponents)
         return composer
     }
 

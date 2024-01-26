@@ -1,3 +1,4 @@
+import Blocks
 import ComposableArchitecture
 @testable import Hoods
 import HoodsTestsTools
@@ -5,13 +6,13 @@ import XCTest
 
 @MainActor
 final class MailButtonTests: XCTestCase {
-    let mailContent = MailContent(recipient: "foo@bar.tld", subject: "Subject", body: "Body")
+    let mailtoComponents = MailtoComponents(recipient: "foo@bar.tld", subject: "Subject", body: "Body")
 
     func testWhenCanSendMail() async throws {
         // Arrange a state that can send emails
         let openURL = TestDependenciesFactory.OpenURL()
         let initialState = MailButtonFeature.State(
-            mailContent: mailContent,
+            mailtoComponents: mailtoComponents,
             canSendEmail: true
         )
         let store = TestStore(initialState: initialState) {
@@ -24,7 +25,7 @@ final class MailButtonTests: XCTestCase {
         await store.send(.buttonTapped) {
             // Assert: an in-app composer was presented
             $0.destination = .mailCompose(MailerFeature.State(
-                mailContent: MailContent(
+                mailtoComponents: MailtoComponents(
                     recipient: "foo@bar.tld",
                     subject: "Subject",
                     body: "Body"
@@ -37,7 +38,7 @@ final class MailButtonTests: XCTestCase {
         // Arrange a state that can not send emails
         let openURL = TestDependenciesFactory.OpenURL()
         let initialState = MailButtonFeature.State(
-            mailContent: mailContent,
+            mailtoComponents: mailtoComponents,
             canSendEmail: false
         )
         let store = TestStore(initialState: initialState) {
