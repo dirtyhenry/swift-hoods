@@ -81,7 +81,7 @@ struct LiveKeychainGateway: KeychainGateway {
         ]
 
         var result: [KeychainItem] = []
-        try allSecItemClasses.forEach { secItemClass in
+        for secItemClass in allSecItemClasses {
             // Create a Search Query
             let query: [String: Any] = [
                 kSecClass as String: secItemClass,
@@ -94,7 +94,7 @@ struct LiveKeychainGateway: KeychainGateway {
             let status = SecItemCopyMatching(query as CFDictionary, &items)
 
             guard status != errSecItemNotFound else {
-                return
+                continue
             }
 
             guard status == errSecSuccess else {
@@ -106,7 +106,7 @@ struct LiveKeychainGateway: KeychainGateway {
                 throw SecurityError.unexpectedData
             }
 
-            try existingItems.forEach { existingItem in
+            for existingItem in existingItems {
                 guard let secretData = existingItem[kSecValueData as String] as? Data?,
                       let account = existingItem[kSecAttrAccount as String] as? String,
                       let label = existingItem[kSecAttrLabel as String] as? String?
