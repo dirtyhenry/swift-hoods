@@ -6,8 +6,8 @@ import Foundation
 public struct MailButtonFeature {
     public struct State: Equatable {
         @PresentationState var destination: Destination.State?
-        var mailtoComponents: MailtoComponents
-        var canSendEmail: Bool
+        public var mailtoComponents: MailtoComponents
+        public var canSendEmail: Bool
 
         public init(mailtoComponents: MailtoComponents, canSendEmail: Bool) {
             self.mailtoComponents = mailtoComponents
