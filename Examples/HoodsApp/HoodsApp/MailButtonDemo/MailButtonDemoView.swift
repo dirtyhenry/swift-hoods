@@ -9,10 +9,13 @@ struct MailButtonDemoView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             Form {
                 Section(header: Text("Mail Content")) {
-                    TextField("Recipient", text: viewStore.$recipient)
-                        .textInputAutocapitalization(.never)
-                        .textContentType(.emailAddress)
-                        .keyboardType(.emailAddress)
+                    TextField("Recipient", text: viewStore.binding(
+                        get: { $0.mailContent.mailtoComponents.recipient ?? "" },
+                        send: { .recipientChanged($0) }
+                    ))
+                    .textInputAutocapitalization(.never)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
                     TextField("Subject", text: viewStore.$subject)
                     TextField("Body", text: viewStore.$body)
                 }

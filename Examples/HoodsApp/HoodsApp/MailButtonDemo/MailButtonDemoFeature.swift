@@ -7,7 +7,6 @@ import MessageUI
 @Reducer
 struct MailButtonDemoFeature {
     struct State: Equatable {
-        @BindingState var recipient: String
         @BindingState var subject: String
         @BindingState var body: String
         var errorDescription: String?
@@ -17,7 +16,6 @@ struct MailButtonDemoFeature {
         init(recipient: String = "foo@bar.tld",
              subject: String = "Hello from the ’hoods",
              body: String = "Look at this awesome TCA mailer") {
-            self.recipient = recipient
             self.subject = subject
             self.body = body
 
@@ -34,6 +32,9 @@ struct MailButtonDemoFeature {
 
     enum Action: BindableAction {
         case binding(BindingAction<State>)
+
+        case recipientChanged(String)
+
         case mailButton(MailButtonFeature.Action)
     }
 
@@ -46,11 +47,11 @@ struct MailButtonDemoFeature {
             switch action {
             case .binding:
                 // Keep fields up to date
-                state.mailContent.mailtoComponents = MailtoComponents(
-                    recipient: state.recipient,
-                    subject: state.subject,
-                    body: state.body
-                )
+                state.mailContent.mailtoComponents.subject = state.subject
+                state.mailContent.mailtoComponents.body = state.body
+                return .none
+            case let .recipientChanged(recipient):
+                state.mailContent.mailtoComponents.recipient = recipient
                 return .none
             case .mailButton(.buttonTapped):
                 state.errorDescription = nil
