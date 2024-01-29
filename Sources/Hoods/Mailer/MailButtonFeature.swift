@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import Blocks
 import ComposableArchitecture
 import Foundation
@@ -110,13 +111,4 @@ public enum MailButtonError {
     case noURLFromMailtoComponents
     case openURLFailed
 }
-
-// TODO: Move to Blocks maybe?
-public extension MailtoComponents {
-    init(recipient: String, subject: String, body: String) {
-        self.init()
-        self.recipient = recipient
-        self.subject = subject
-        self.body = body
-    }
-}
+#endif

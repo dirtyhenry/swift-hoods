@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import ComposableArchitecture
 import MessageUI
 import SwiftUI
@@ -40,3 +41,4 @@ struct MailerView: UIViewControllerRepresentable {
         }
     }
 }
+#endif

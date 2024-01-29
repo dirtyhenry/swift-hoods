@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import Blocks
 import ComposableArchitecture
 import SwiftUI
@@ -53,3 +54,4 @@ public struct MailButtonView<Label: View>: View {
         }
     )
 }
+#endif

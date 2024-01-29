@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import Blocks
 import ComposableArchitecture
 import Foundation
@@ -24,3 +25,4 @@ public struct MailerFeature {
         }
     }
 }
+#endif
