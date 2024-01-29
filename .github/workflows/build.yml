@@ -10,13 +10,17 @@ on:
 
 jobs:
   build_macOS:
+    name: Build macOS
     runs-on: macos-13
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Output XCode version
+      - name: Select Xcode 15.2
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
+      - name: Output XCode and Swift version
         run: |
           xcrun xcodebuild -version
+          xcrun swift --version
       - name: Build debug version
         run: |
           make build
@@ -30,9 +34,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Output XCode version
+      - name: Select Xcode 15.2
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
+      - name: Output XCode and Swift version
         run: |
           xcrun xcodebuild -version
+          xcrun swift --version
       - name: Show destinations
         run: xcrun xcodebuild -showdestinations -scheme Hoods
       - name: Build debug version
