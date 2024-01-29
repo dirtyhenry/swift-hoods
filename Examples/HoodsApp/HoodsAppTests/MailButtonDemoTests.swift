@@ -7,7 +7,6 @@ import XCTest
 @MainActor
 final class MailButtonDemoTests: XCTestCase {
     func testMailButtonDemo() async throws {
-        // isRecording = true
         let openURL = TestDependenciesFactory.OpenURL()
 
         let store = TestStore(initialState: MailButtonDemoFeature.State()) {
@@ -15,14 +14,16 @@ final class MailButtonDemoTests: XCTestCase {
         } withDependencies: {
             $0.openURL = openURL.effect
         }
-        await store.send(.set(\.$recipient, "john.doe@example.com")) {
-            $0.recipient = "john.doe@example.com"
+        await store.send(.recipientChanged("john.doe@example.com")) {
+            $0.mailContent.mailtoComponents.recipient = "john.doe@example.com"
         }
         await store.send(.set(\.$subject, "Hey Joe")) {
             $0.subject = "Hey Joe"
+            $0.mailContent.mailtoComponents.subject = "Hey Joe"
         }
         await store.send(.set(\.$body, "Have you heard of Jimi Hendrix?")) {
             $0.body = "Have you heard of Jimi Hendrix?"
+            $0.mailContent.mailtoComponents.body = "Have you heard of Jimi Hendrix?"
         }
 
         await store.send(.mailButton(.buttonTapped))
