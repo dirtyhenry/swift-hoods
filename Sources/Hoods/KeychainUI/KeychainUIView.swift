@@ -50,7 +50,7 @@ public struct KeychainUIView: View {
             .sheet(
                 store: store.scope(
                     state: \.$destination,
-                    action: { .destination($0) }
+                    action: \.destination
                 ),
                 state: /KeychainUIFeature.Destination.State.addKeychainItem,
                 action: KeychainUIFeature.Destination.Action.addKeychainItem

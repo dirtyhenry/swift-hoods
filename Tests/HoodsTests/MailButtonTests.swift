@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import Blocks
 import ComposableArchitecture
 @testable import Hoods
@@ -55,3 +56,4 @@ final class MailButtonTests: XCTestCase {
         XCTAssertEqual(openURL.spy.value, [URL(string: "mailto:foo@bar.tld?subject=Subject&body=Body")])
     }
 }
+#endif

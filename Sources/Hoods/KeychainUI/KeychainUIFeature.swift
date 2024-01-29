@@ -10,10 +10,9 @@ extension KeychainItem: Identifiable {
     }
 }
 
-public struct KeychainUIFeature: Reducer {
-    public init() {}
-
-    public struct State {
+@Reducer
+public struct KeychainUIFeature {
+    public struct State: Equatable {
         @PresentationState var destination: Destination.State?
 
         var items: [KeychainItem]
@@ -32,6 +31,8 @@ public struct KeychainUIFeature: Reducer {
     }
 
     @Dependency(\.keychainGateway) var keychainGateway
+
+    public init() {}
 
     public var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -69,9 +70,6 @@ public struct KeychainUIFeature: Reducer {
         }
     }
 }
-
-extension KeychainUIFeature.State: Equatable {}
-extension KeychainUIFeature.Action: Equatable {}
 
 public extension KeychainUIFeature {
     struct Destination: Reducer {

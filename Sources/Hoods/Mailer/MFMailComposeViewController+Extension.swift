@@ -1,3 +1,4 @@
+#if canImport(MessageUI)
 import Blocks
 import MessageUI
 
@@ -18,3 +19,4 @@ extension MFMailComposeViewController {
         }
     }
 }
+#endif
