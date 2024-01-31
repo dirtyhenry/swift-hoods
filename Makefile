@@ -28,6 +28,8 @@ lint:
 
 clean:
 	rm -rf .build/
+	rm -rf .swiftpm/
+	rm -rf Examples/HoodsCLI/.build/
 	rm -rf .Hoods.doccarchive/
 
 docs:
@@ -37,3 +39,7 @@ docs:
 
 serve-docs:
 	serve --single .Hoods.doccarchive
+
+cli: ## Build the demo CLI	
+	swift package update --package-path Examples/HoodsCLI/
+	swift build --package-path Examples/HoodsCLI/

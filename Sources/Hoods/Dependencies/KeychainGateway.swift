@@ -48,15 +48,15 @@ extension KeychainItem.ItemClass: CustomStringConvertible {
     var description: String {
         switch self {
         case .genericPassword:
-            return "Generic Password"
+            "Generic Password"
         case .internetPassword:
-            return "Internet Password"
+            "Internet Password"
         case .certificate:
-            return "Certificate"
+            "Certificate"
         case .key:
-            return "Key"
+            "Key"
         case .identity:
-            return "Identity"
+            "Identity"
         }
     }
 }

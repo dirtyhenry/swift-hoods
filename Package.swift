@@ -26,6 +26,10 @@ let package = Package(
             branch: "main"
         ),
         .package(
+            url: "https://github.com/apple/swift-argument-parser",
+            from: "1.3.0"
+        ),
+        .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture",
             from: "1.6.0"
         ),
@@ -39,6 +43,10 @@ let package = Package(
             name: "Hoods",
             dependencies: [
                 .product(name: "Blocks", package: "swift-blocks"),
+                .product(
+                    name: "ArgumentParser",
+                    package: "swift-argument-parser"
+                ),
                 .product(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
