@@ -5,6 +5,9 @@
       location = "group:">
    </FileRef>
    <FileRef
+      location = "group:Examples/HoodsCLI/">
+   </FileRef>
+   <FileRef
       location = "group:Examples/HoodsApp/HoodsApp.xcodeproj">
    </FileRef>
 </Workspace>
