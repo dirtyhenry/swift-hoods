@@ -44,7 +44,7 @@ jobs:
         run: xcrun xcodebuild -showdestinations -scheme Hoods
       - name: Build debug version
         run: |
-          xcrun xcodebuild -skipMacroValidation -skipPackagePluginValidation build -scheme Hoods -destination generic/platform=ios
+          xcrun xcodebuild -skipMacroValidation build -scheme Hoods -destination generic/platform=ios
       - name: Test debug version
         run: |
-          xcrun xcodebuild -skipMacroValidation -skipPackagePluginValidation test -scheme Hoods -destination 'platform=iOS Simulator,name=iPhone 14'
+          xcrun xcodebuild -skipMacroValidation test -workspace .github/package.xcworkspace -scheme Hoods -destination 'platform=iOS Simulator,name=iPhone 14'
