@@ -2,6 +2,38 @@ import ArgumentParser
 import Blocks
 
 /// A utility for handling values that can be initialized from command line arguments or user input prompts.
+/// 
+/// Use `InputableValue` for command-line interfaces options that are mandatory for your command and that you want to
+/// be input by the user either by the option at calling time, or interactively at run time.
+/// 
+/// For example, for the user to provide their name:
+/// 
+/// ```swift
+/// @main
+/// struct Greet: ParsableCommand {
+///     @Option var name: InputableValue<String> = InputableValue(prompt: "What is your name?")
+///   
+///     mutating func run() {
+///         let name = try name.get()
+///         print("Hello \(name)!")
+///     }
+/// }
+/// ```
+/// 
+/// If `name` is known when `get()` is called, then the value will be used without any interaction. Otherwise, a 
+/// prompt will provide the user an opportunity to fill their name. 
+/// 
+/// ```
+/// $ greet --name Alicia
+/// Hello Alicia!
+/// $ greet
+/// What is your name?
+/// Alicia
+/// Hello Alicia!
+/// ```
+/// 
+/// `InputableValue` works with any type that complies with ``ExpressibleByArgument``, including `Int`, `Bool`, but
+/// also any custom types conforming to it.
 public struct InputableValue<Value: ExpressibleByArgument>: ExpressibleByArgument {
     private enum Input {
         case argumentValue(Value)

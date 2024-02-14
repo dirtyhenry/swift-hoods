@@ -1,6 +1,5 @@
 import ArgumentParser
 import Hoods
-import Vision
 
 struct DemoUtilsCommand: ParsableCommand {
     static var configuration = CommandConfiguration(

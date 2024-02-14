@@ -6,7 +6,8 @@ struct HoodsCLI: AsyncParsableCommand {
         abstract: "Hoods CLI Tool.",
         version: "0.1.0",
         subcommands: [
-            DemoUtilsCommand.self
+            DemoUtilsCommand.self,
+            Greet.self
         ]
     )
 }

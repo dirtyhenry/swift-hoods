@@ -1,3 +1,7 @@
+CONFIG = debug
+PLATFORM_IOS = iOS Simulator,id=$(call udid_for,iOS 17.2,iPhone \d\+ Pro [^M])
+PLATFORM_MACOS = macOS
+
 open: 
 	open Hoods.xcworkspace
 
@@ -13,7 +17,14 @@ test-debug:
 	swift test --verbose --very-verbose
 
 test:
-	swift test
+	for platform in "$(PLATFORM_IOS)" "$(PLATFORM_MACOS)"; do \
+		xcodebuild test \
+			-skipMacroValidation \
+			-configuration $(CONFIG) \
+			-workspace .github/package.xcworkspace \
+			-scheme Hoods \
+			-destination platform="$$platform" || exit 1; \
+	done
 
 release:
 	swift build -c release
@@ -30,6 +41,7 @@ clean:
 	rm -rf .build/
 	rm -rf .swiftpm/
 	rm -rf Examples/HoodsCLI/.build/
+	rm -rf Examples/HoodsCLI/.swiftpm/
 	rm -rf .Hoods.doccarchive/
 
 docs:
@@ -43,3 +55,7 @@ serve-docs:
 cli: ## Build the demo CLI	
 	swift package update --package-path Examples/HoodsCLI/
 	swift build --package-path Examples/HoodsCLI/
+
+define udid_for
+$(shell xcrun simctl list devices available '$(1)' | grep '$(2)' | sort -r | head -1 | awk -F '[()]' '{ print $$(NF-3) }')
+endef
