@@ -8,7 +8,7 @@ struct Greet: ParsableCommand {
     )
 
     @Option var name: InputableValue<String> = InputableValue(prompt: "What is your name?")
-  
+
     mutating func run() throws {
         let name = try name.get()
         print("Hello \(name)!")
