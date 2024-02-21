@@ -14,6 +14,7 @@ struct RootView: View {
     enum Path: String {
         case keychainUI
         case mailer
+        case copyText
     }
 
     var body: some View {
@@ -21,6 +22,7 @@ struct RootView: View {
             List {
                 Button("KeychainUI") { navigate(to: .keychainUI) }
                 Button("Mailer") { navigate(to: .mailer) }
+                Button("CopyText") { navigate(to: .copyText) }
             }
         } detail: {
             switch currentPath {
@@ -34,6 +36,12 @@ struct RootView: View {
                 MailButtonDemoView(
                     store: Store(initialState: MailButtonDemoFeature.State()) {
                         MailButtonDemoFeature()
+                    }
+                )
+            case .copyText:
+                CopyTextDemoView(
+                    store: Store(initialState: CopyTextDemoFeature.State()) {
+                        CopyTextDemoFeature()
                     }
                 )
             case nil:

@@ -60,6 +60,7 @@ let package = Package(
         .target(
             name: "HoodsTestsTools",
             dependencies: [
+                "Hoods",
                 .product(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
