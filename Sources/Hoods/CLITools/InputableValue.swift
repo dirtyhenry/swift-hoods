@@ -37,7 +37,7 @@ import Blocks
 public struct InputableValue<Value: ExpressibleByArgument>: ExpressibleByArgument {
     private enum Input {
         case argumentValue(Value)
-        case invalidArgumentValue
+        case invalidArgumentValue(String)
         case promptInput(String)
     }
 
@@ -50,7 +50,7 @@ public struct InputableValue<Value: ExpressibleByArgument>: ExpressibleByArgumen
         if let value = Value(argument: argument) {
             input = .argumentValue(value)
         } else {
-            input = .invalidArgumentValue
+            input = .invalidArgumentValue(argument)
         }
     }
 
@@ -73,8 +73,14 @@ public struct InputableValue<Value: ExpressibleByArgument>: ExpressibleByArgumen
             print(prompt)
             let inputString = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines)
             return try Value(argument: inputString ?? "") ?? { throw SimpleMessageError(message: "Required") }()
-        case .invalidArgumentValue:
-            throw SimpleMessageError(message: "Required")
+        case let .invalidArgumentValue(argument):
+            throw SimpleMessageError(message: "Could not get `ExpressibleByArgument` value from input \(argument)")
         }
+    }
+}
+
+extension InputableValue: CustomStringConvertible {
+    public var description: String {
+        "will prompt the user for input"
     }
 }
