@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+permissions: read-all
+
 jobs:
   build_macOS:
     name: Build macOS
@@ -26,11 +28,14 @@ jobs:
           make build
       - name: Test debug version
         run: |
-          make test
+          swift test
 
   build_iOS:
     name: Build iOS
     runs-on: macos-13
+    env:
+      TEST_IOS_VERSION: ${{ vars.TEST_IOS_VERSION }}
+      TEST_IOS_SIMULATOR_MODEL: ${{ vars.TEST_IOS_SIMULATOR_MODEL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,7 +49,22 @@ jobs:
         run: xcrun xcodebuild -showdestinations -scheme Hoods
       - name: Build debug version
         run: |
-          xcrun xcodebuild -skipMacroValidation build -scheme Hoods -destination generic/platform=ios
+          set -o pipefail && xcrun xcodebuild build \
+            -skipMacroValidation -skipPackagePluginValidation \
+            -skipMacroValidation build -scheme Hoods -destination generic/platform=ios
       - name: Test debug version
         run: |
-          xcrun xcodebuild -skipMacroValidation test -workspace .github/package.xcworkspace -scheme Hoods -destination 'platform=iOS Simulator,name=iPhone 14'
+          echo "$TEST_IOS_VERSION"
+          echo "$TEST_IOS_SIMULATOR_MODEL"
+          curl -sSL https://raw.githubusercontent.com/dirtyhenry/swift-blocks/main/Scripts/ListDevices.swift \
+            -o findDevice
+          chmod +x findDevice
+          # Find the device identifier
+          DEVICE_ID=$(./findDevice "$TEST_IOS_VERSION" "$TEST_IOS_SIMULATOR_MODEL")
+
+          # Run a test
+          set -o pipefail && xcodebuild test \
+              -skipMacroValidation -skipPackagePluginValidation \
+              -scheme Hoods \
+              -destination platform="iOS Simulator,id=$DEVICE_ID" \
+              | xcpretty
