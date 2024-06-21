@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "FBF90588-C59E-4C6E-9B9A-873CFEDB5AF8",
+      "id" : "40DF2DE9-06F9-4355-A78B-2B4C58AFFDEF",
       "name" : "Configuration 1",
       "options" : {
 
@@ -12,13 +12,7 @@
 
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:",
-        "identifier" : "HoodsTests",
-        "name" : "HoodsTests"
-      }
-    }
+
   ],
   "version" : 1
 }
