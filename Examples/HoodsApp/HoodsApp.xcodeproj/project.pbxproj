@@ -12,6 +12,10 @@
 		0004E7C62B86A313008EBCF9 /* CopyTextDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */; };
 		004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 004F27732AE6DF3A00D118BA /* ComposableArchitecture */; };
 		00BC0F6D2B632FE2000FC408 /* HoodsTestsTools in Frameworks */ = {isa = PBXBuildFile; productRef = 00BC0F6C2B632FE2000FC408 /* HoodsTestsTools */; };
+		00D120752C88E997001CDA65 /* ImagePickerFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120742C88E997001CDA65 /* ImagePickerFeature.swift */; };
+		00D120772C88E99C001CDA65 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120762C88E99C001CDA65 /* ImagePickerView.swift */; };
+		00D1207A2C88EA5A001CDA65 /* ImagePickerDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120782C88EA59001CDA65 /* ImagePickerDemoFeature.swift */; };
+		00D1207B2C88EA5A001CDA65 /* ImagePickerDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120792C88EA5A001CDA65 /* ImagePickerDemoView.swift */; };
 		00D428992AE6DF5F00397074 /* Hoods in Frameworks */ = {isa = PBXBuildFile; productRef = 00D428982AE6DF5F00397074 /* Hoods */; };
 		00DCF43B2B62A8EC00082C13 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 00DCF43A2B62A8EC00082C13 /* InlineSnapshotTesting */; };
 		00DCF43D2B62A8EC00082C13 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 00DCF43C2B62A8EC00082C13 /* SnapshotTesting */; };
@@ -40,6 +44,10 @@
 		0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoView.swift; sourceTree = "<group>"; };
 		0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoTests.swift; sourceTree = "<group>"; };
 		00CC6CBA2A68425F0093300A /* DefaultTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DefaultTestPlan.xctestplan; sourceTree = "<group>"; };
+		00D120742C88E997001CDA65 /* ImagePickerFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerFeature.swift; sourceTree = "<group>"; };
+		00D120762C88E99C001CDA65 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		00D120782C88EA59001CDA65 /* ImagePickerDemoFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerDemoFeature.swift; sourceTree = "<group>"; };
+		00D120792C88EA5A001CDA65 /* ImagePickerDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerDemoView.swift; sourceTree = "<group>"; };
 		00DCF43F2B62CFD400082C13 /* MailButtonDemoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailButtonDemoFeature.swift; sourceTree = "<group>"; };
 		00DCF4412B62CFED00082C13 /* MailButtonDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailButtonDemoView.swift; sourceTree = "<group>"; };
 		00DCF4432B62CFF800082C13 /* MailButtonDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailButtonDemoTests.swift; sourceTree = "<group>"; };
@@ -85,6 +93,17 @@
 			path = CopyTextDemo;
 			sourceTree = "<group>";
 		};
+		00D120732C88E987001CDA65 /* ImagePickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				00D120782C88EA59001CDA65 /* ImagePickerDemoFeature.swift */,
+				00D120792C88EA5A001CDA65 /* ImagePickerDemoView.swift */,
+				00D120742C88E997001CDA65 /* ImagePickerFeature.swift */,
+				00D120762C88E99C001CDA65 /* ImagePickerView.swift */,
+			);
+			path = ImagePickerDemo;
+			sourceTree = "<group>";
+		};
 		00DCF43E2B62CFBE00082C13 /* MailButtonDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				0004E7C02B86A2B7008EBCF9 /* CopyTextDemo */,
+				00D120732C88E987001CDA65 /* ImagePickerDemo */,
 				00DCF43E2B62CFBE00082C13 /* MailButtonDemo */,
 				00F84B012A66DE0B00A7EC95 /* Info.plist */,
 				00F6F5572A66CBE40088B530 /* HoodsApp.swift */,
@@ -268,7 +288,11 @@
 			files = (
 				00DCF4402B62CFD400082C13 /* MailButtonDemoFeature.swift in Sources */,
 				00F6F5582A66CBE40088B530 /* HoodsApp.swift in Sources */,
+				00D120752C88E997001CDA65 /* ImagePickerFeature.swift in Sources */,
 				0004E7C22B86A2E8008EBCF9 /* CopyTextDemoFeature.swift in Sources */,
+				00D1207B2C88EA5A001CDA65 /* ImagePickerDemoView.swift in Sources */,
+				00D1207A2C88EA5A001CDA65 /* ImagePickerDemoFeature.swift in Sources */,
+				00D120772C88E99C001CDA65 /* ImagePickerView.swift in Sources */,
 				00DCF4422B62CFED00082C13 /* MailButtonDemoView.swift in Sources */,
 				0004E7C42B86A2F4008EBCF9 /* CopyTextDemoView.swift in Sources */,
 				00F84B002A66D7B100A7EC95 /* RootView.swift in Sources */,

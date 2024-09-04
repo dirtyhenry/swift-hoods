@@ -15,6 +15,7 @@ struct RootView: View {
         case keychainUI
         case mailer
         case copyText
+        case imagePicker
     }
 
     var body: some View {
@@ -23,6 +24,7 @@ struct RootView: View {
                 Button("KeychainUI") { navigate(to: .keychainUI) }
                 Button("Mailer") { navigate(to: .mailer) }
                 Button("CopyText") { navigate(to: .copyText) }
+                Button("ImagePicker") { navigate(to: .imagePicker) }
             }
         } detail: {
             switch currentPath {
@@ -42,6 +44,12 @@ struct RootView: View {
                 CopyTextDemoView(
                     store: Store(initialState: CopyTextDemoFeature.State()) {
                         CopyTextDemoFeature()
+                    }
+                )
+            case .imagePicker:
+                ImagePickerDemoView(
+                    store: Store(initialState: ImagePickerDemoFeature.State()) {
+                        ImagePickerDemoFeature()
                     }
                 )
             case nil:
