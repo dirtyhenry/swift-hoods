@@ -14,7 +14,7 @@ public enum TestDependenciesFactory {
 
         /// Initializes a new instance of `OpenURL`.
         public init() {
-            let _spy = LockIsolated<[URL]>.init([])
+            let _spy = LockIsolated<[URL]>([])
             effect = OpenURLEffect { url in
                 _spy.withValue { $0.append(url) }
                 return true
@@ -54,7 +54,7 @@ public enum TestDependenciesFactory {
 
         /// Initializes a new instance of `CopyText`.
         public init() {
-            let _spy = LockIsolated<[String]>.init([])
+            let _spy = LockIsolated<[String]>([])
             effect = CopyTextEffect { text in
                 _spy.withValue { $0.append(text) }
                 return true

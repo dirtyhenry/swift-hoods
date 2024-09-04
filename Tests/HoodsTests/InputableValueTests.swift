@@ -4,8 +4,8 @@ import XCTest
 
 class InputableValueTests: XCTestCase {
     func testInputByArgument() throws {
-        XCTAssertEqual(try InputableValue<String>.init(argument: "Test").get(), "Test")
-        XCTAssertEqual(try InputableValue<Int>.init(argument: "123").get(), 123)
-        XCTAssertEqual(try InputableValue<Bool>.init(argument: "true").get(), true)
+        XCTAssertEqual(try InputableValue<String>(argument: "Test").get(), "Test")
+        XCTAssertEqual(try InputableValue<Int>(argument: "123").get(), 123)
+        XCTAssertEqual(try InputableValue<Bool>(argument: "true").get(), true)
     }
 }
