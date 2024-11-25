@@ -6,9 +6,8 @@ import PackageDescription
 let package = Package(
     name: "swift-hoods",
     platforms: [
-        // Limiting factor: os.Logger
-        .macOS(.v11),
-        .iOS(.v14)
+        .macOS(.v13),
+        .iOS(.v15)
     ],
     products: [
         .library(
@@ -23,7 +22,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/dirtyhenry/swift-blocks",
-            branch: "main"
+            branch: "0.5.0"
         ),
         .package(
             url: "https://github.com/apple/swift-argument-parser",
@@ -36,13 +35,20 @@ let package = Package(
         .package(
             url: "https://github.com/jpsim/Yams.git",
             from: "5.0.6"
+        ),
+        .package(
+            url: "https://github.com/vapor/jwt-kit.git",
+            from: "5.0.0"
         )
     ],
     targets: [
         .target(
             name: "Hoods",
             dependencies: [
-                .product(name: "Blocks", package: "swift-blocks"),
+                .product(
+                    name: "Blocks",
+                    package: "swift-blocks"
+                ),
                 .product(
                     name: "ArgumentParser",
                     package: "swift-argument-parser"
@@ -54,6 +60,10 @@ let package = Package(
                 .product(
                     name: "Yams",
                     package: "Yams"
+                ),
+                .product(
+                    name: "JWTKit",
+                    package: "jwt-kit"
                 )
             ]
         ),
