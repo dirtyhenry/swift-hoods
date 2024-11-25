@@ -98,7 +98,7 @@ public final class LiveJWTFactory: JWTFactory {
 /// A mock implementation of `JWTFactory` for testing purposes.
 public final class MockJWTFactory: JWTFactory {
     public func sign(payload _: JWTPayload, keyIdentifier _: String) async throws -> String {
-        "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.tyh-VfuzIxCyGYDlkBA7DfyjrqmSHu6pQ2hoZuFqUSLPNY2N0mpHb3nk5K17HWP_3cYHBw7AhHale5wky6-sVA"
+        "dummy-token"
     }
 
     public func verify<T: JWTPayload>(jwt _: String, as _: T.Type) async throws -> T {
