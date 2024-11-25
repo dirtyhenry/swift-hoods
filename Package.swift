@@ -6,9 +6,8 @@ import PackageDescription
 let package = Package(
     name: "swift-hoods",
     platforms: [
-        // Limiting factor: os.Logger
-        .macOS(.v11),
-        .iOS(.v14)
+        .macOS(.v13),
+        .iOS(.v15)
     ],
     products: [
         .library(
