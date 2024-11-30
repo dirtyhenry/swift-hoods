@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dirtyhenry/swift-blocks",
       "state" : {
-        "branch" : "0.5.0",
-        "revision" : "989b7f4dfd73c86a0f48a4c287c9d2666cffa8ff"
+        "branch" : "main",
+        "revision" : "281d5d4627e3d5b11b524cf4223f2fbc09b07910"
       }
     },
     {
