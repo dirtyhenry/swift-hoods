@@ -6,6 +6,11 @@ struct RootView: View {
     @State var currentPath: Path?
     @State private var preferredColumn = NavigationSplitViewColumn.detail
 
+    static let counterStore = Store(initialState: CounterFeature.State()) {
+        CounterFeature()
+            ._printChanges()
+    }
+
     func navigate(to path: Path) {
         currentPath = path
         preferredColumn = .detail
@@ -16,6 +21,7 @@ struct RootView: View {
         case mailer
         case copyText
         case imagePicker
+        case tcaCounter
     }
 
     var body: some View {
@@ -25,6 +31,7 @@ struct RootView: View {
                 Button("Mailer") { navigate(to: .mailer) }
                 Button("CopyText") { navigate(to: .copyText) }
                 Button("ImagePicker") { navigate(to: .imagePicker) }
+                Button("TCA Counter") { navigate(to: .tcaCounter) }
             }
         } detail: {
             switch currentPath {
@@ -52,6 +59,8 @@ struct RootView: View {
                         ImagePickerDemoFeature()
                     }
                 )
+            case .tcaCounter:
+                CounterView(store: Self.counterStore)
             case nil:
                 VStack {
                     Text("🏘️ Welcome to the ’hoods!")
