@@ -26,6 +26,7 @@ struct CounterFeature {
     }
 
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.numberFact) var numberFact
 
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -39,10 +40,7 @@ struct CounterFeature {
                 state.fact = nil
                 state.isLoading = true
                 return .run { [count = state.count] send in
-                    let (data, _) = try await URLSession.shared
-                        .data(from: URL(string: "https://www.statium.app/newsletter/api/latest?query=\(count)")!)
-                    let fact = String(decoding: data, as: UTF8.self)
-                    await send(.factResponse(String(fact.prefix(10))))
+                    try await send(.factResponse(numberFact.fetch(count)))
                 }
 
             case let .factResponse(fact):
