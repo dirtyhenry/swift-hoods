@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,6 +60,10 @@
 		00F84AFF2A66D7B100A7EC95 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		00F84B012A66DE0B00A7EC95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0068F70F2D146A1800295745 /* TCATutorial */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TCATutorial; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		00F6F5512A66CBE40088B530 /* Frameworks */ = {
@@ -135,6 +139,7 @@
 		00F6F5562A66CBE40088B530 /* HoodsApp */ = {
 			isa = PBXGroup;
 			children = (
+				0068F70F2D146A1800295745 /* TCATutorial */,
 				0004E7C02B86A2B7008EBCF9 /* CopyTextDemo */,
 				00D120732C88E987001CDA65 /* ImagePickerDemo */,
 				00DCF43E2B62CFBE00082C13 /* MailButtonDemo */,
@@ -187,6 +192,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0068F70F2D146A1800295745 /* TCATutorial */,
 			);
 			name = HoodsApp;
 			packageProductDependencies = (
