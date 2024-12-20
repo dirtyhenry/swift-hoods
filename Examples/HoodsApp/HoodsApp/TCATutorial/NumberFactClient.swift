@@ -9,7 +9,7 @@ extension NumberFactClient: DependencyKey {
     static let liveValue = Self(
         fetch: { number in
             let (data, _) = try await URLSession.shared
-                .data(from: URL(string: "https://www.statium.app/newsletter/api/latest?query=\(number)")!)
+                .data(from: URL(string: "https://statium-monorepo.vercel.app/newsletter/latest?query=\(number)")!)
             return String(decoding: data, as: UTF8.self)
         }
     )

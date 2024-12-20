@@ -6,8 +6,8 @@ struct RootView: View {
     @State var currentPath: Path?
     @State private var preferredColumn = NavigationSplitViewColumn.detail
 
-    static let counterStore = Store(initialState: CounterFeature.State()) {
-        CounterFeature()
+    static let counterTabStore = Store(initialState: CounterTabFeature.State()) {
+        CounterTabFeature()
             ._printChanges()
     }
 
@@ -60,7 +60,7 @@ struct RootView: View {
                     }
                 )
             case .tcaCounter:
-                CounterView(store: Self.counterStore)
+                CounterTabView(store: Self.counterTabStore)
             case nil:
                 VStack {
                     Text("🏘️ Welcome to the ’hoods!")

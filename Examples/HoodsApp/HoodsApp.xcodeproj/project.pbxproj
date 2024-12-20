@@ -12,6 +12,7 @@
 		0004E7C62B86A313008EBCF9 /* CopyTextDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */; };
 		004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 004F27732AE6DF3A00D118BA /* ComposableArchitecture */; };
 		0068F7132D1486A000295745 /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0068F7122D1486A000295745 /* CounterFeatureTests.swift */; };
+		0068F71B2D1574A600295745 /* CounterTabFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0068F71A2D1574A600295745 /* CounterTabFeatureTests.swift */; };
 		00BC0F6D2B632FE2000FC408 /* HoodsTestsTools in Frameworks */ = {isa = PBXBuildFile; productRef = 00BC0F6C2B632FE2000FC408 /* HoodsTestsTools */; };
 		00D120752C88E997001CDA65 /* ImagePickerFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120742C88E997001CDA65 /* ImagePickerFeature.swift */; };
 		00D120772C88E99C001CDA65 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120762C88E99C001CDA65 /* ImagePickerView.swift */; };
@@ -45,6 +46,7 @@
 		0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoView.swift; sourceTree = "<group>"; };
 		0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoTests.swift; sourceTree = "<group>"; };
 		0068F7122D1486A000295745 /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
+		0068F71A2D1574A600295745 /* CounterTabFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTabFeatureTests.swift; sourceTree = "<group>"; };
 		00CC6CBA2A68425F0093300A /* DefaultTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DefaultTestPlan.xctestplan; sourceTree = "<group>"; };
 		00D120742C88E997001CDA65 /* ImagePickerFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerFeature.swift; sourceTree = "<group>"; };
 		00D120762C88E99C001CDA65 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				00DCF4432B62CFF800082C13 /* MailButtonDemoTests.swift */,
 				0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */,
 				0068F7122D1486A000295745 /* CounterFeatureTests.swift */,
+				0068F71A2D1574A600295745 /* CounterTabFeatureTests.swift */,
 			);
 			path = HoodsAppTests;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				0068F7132D1486A000295745 /* CounterFeatureTests.swift in Sources */,
 				0004E7C62B86A313008EBCF9 /* CopyTextDemoTests.swift in Sources */,
 				00F6F5692A66CBE50088B530 /* HoodsAppTests.swift in Sources */,
+				0068F71B2D1574A600295745 /* CounterTabFeatureTests.swift in Sources */,
 				00DCF4442B62CFF800082C13 /* MailButtonDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +471,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,7 +505,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N77R86QZUG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,7 +549,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N77R86QZUG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
