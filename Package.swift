@@ -22,7 +22,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/dirtyhenry/swift-blocks",
-            branch: "main"
+            from: "0.8.0"
         ),
         .package(
             url: "https://github.com/apple/swift-argument-parser",
@@ -33,13 +33,17 @@ let package = Package(
             from: "1.6.0"
         ),
         .package(
+          url: "https://github.com/pointfreeco/swift-snapshot-testing",
+          from: "1.18.0"
+        ),
+        .package(
             url: "https://github.com/jpsim/Yams.git",
             from: "5.0.6"
         ),
         .package(
             url: "https://github.com/vapor/jwt-kit.git",
             from: "5.0.0"
-        )
+        ),
     ],
     targets: [
         .target(
@@ -74,6 +78,10 @@ let package = Package(
                 .product(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
+                ),
+                .product(
+                    name: "SnapshotTesting",
+                    package: "swift-snapshot-testing"
                 )
             ]
         ),

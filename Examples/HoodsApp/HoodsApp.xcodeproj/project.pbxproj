@@ -10,10 +10,10 @@
 		0004E7C22B86A2E8008EBCF9 /* CopyTextDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C12B86A2E8008EBCF9 /* CopyTextDemoFeature.swift */; };
 		0004E7C42B86A2F4008EBCF9 /* CopyTextDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */; };
 		0004E7C62B86A313008EBCF9 /* CopyTextDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */; };
+		004A5F3B2EC22E9A00AB9C54 /* HoodsTestsTools in Frameworks */ = {isa = PBXBuildFile; productRef = 004A5F3A2EC22E9A00AB9C54 /* HoodsTestsTools */; };
 		004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 004F27732AE6DF3A00D118BA /* ComposableArchitecture */; };
 		0068F7132D1486A000295745 /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0068F7122D1486A000295745 /* CounterFeatureTests.swift */; };
 		0068F71B2D1574A600295745 /* CounterTabFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0068F71A2D1574A600295745 /* CounterTabFeatureTests.swift */; };
-		00BC0F6D2B632FE2000FC408 /* HoodsTestsTools in Frameworks */ = {isa = PBXBuildFile; productRef = 00BC0F6C2B632FE2000FC408 /* HoodsTestsTools */; };
 		00D120752C88E997001CDA65 /* ImagePickerFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120742C88E997001CDA65 /* ImagePickerFeature.swift */; };
 		00D120772C88E99C001CDA65 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120762C88E99C001CDA65 /* ImagePickerView.swift */; };
 		00D1207A2C88EA5A001CDA65 /* ImagePickerDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D120782C88EA59001CDA65 /* ImagePickerDemoFeature.swift */; };
@@ -75,7 +75,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */,
-				00BC0F6D2B632FE2000FC408 /* HoodsTestsTools in Frameworks */,
 				00D428992AE6DF5F00397074 /* Hoods in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DCF43B2B62A8EC00082C13 /* InlineSnapshotTesting in Frameworks */,
+				004A5F3B2EC22E9A00AB9C54 /* HoodsTestsTools in Frameworks */,
 				00DCF43D2B62A8EC00082C13 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +206,6 @@
 			packageProductDependencies = (
 				004F27732AE6DF3A00D118BA /* ComposableArchitecture */,
 				00D428982AE6DF5F00397074 /* Hoods */,
-				00BC0F6C2B632FE2000FC408 /* HoodsTestsTools */,
 			);
 			productName = HoodsApp;
 			productReference = 00F6F5542A66CBE40088B530 /* HoodsApp.app */;
@@ -229,6 +228,7 @@
 			packageProductDependencies = (
 				00DCF43A2B62A8EC00082C13 /* InlineSnapshotTesting */,
 				00DCF43C2B62A8EC00082C13 /* SnapshotTesting */,
+				004A5F3A2EC22E9A00AB9C54 /* HoodsTestsTools */,
 			);
 			productName = HoodsAppTests;
 			productReference = 00F6F5642A66CBE50088B530 /* HoodsAppTests.xctest */;
@@ -612,14 +612,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		004A5F3A2EC22E9A00AB9C54 /* HoodsTestsTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HoodsTestsTools;
+		};
 		004F27732AE6DF3A00D118BA /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 004F27722AE6DF3A00D118BA /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
-		};
-		00BC0F6C2B632FE2000FC408 /* HoodsTestsTools */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = HoodsTestsTools;
 		};
 		00D428982AE6DF5F00397074 /* Hoods */ = {
 			isa = XCSwiftPackageProductDependency;
