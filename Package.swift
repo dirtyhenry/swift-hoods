@@ -33,8 +33,8 @@ let package = Package(
             from: "1.6.0"
         ),
         .package(
-          url: "https://github.com/pointfreeco/swift-snapshot-testing",
-          from: "1.18.0"
+            url: "https://github.com/pointfreeco/swift-snapshot-testing",
+            from: "1.18.0"
         ),
         .package(
             url: "https://github.com/jpsim/Yams.git",
@@ -43,7 +43,7 @@ let package = Package(
         .package(
             url: "https://github.com/vapor/jwt-kit.git",
             from: "5.0.0"
-        ),
+        )
     ],
     targets: [
         .target(

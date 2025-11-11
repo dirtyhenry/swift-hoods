@@ -6,7 +6,7 @@ open:
 	open Hoods.xcworkspace
 
 install:
-	bundle install
+	yarn install
 	swift package resolve
 
 build:
@@ -30,6 +30,7 @@ release:
 	swift build -c release
 
 format:
+	yarn run prettier . --write
 	swiftformat --verbose .
 	swiftlint lint --autocorrect .
 	

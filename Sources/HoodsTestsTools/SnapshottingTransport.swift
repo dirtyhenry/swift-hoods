@@ -1,20 +1,20 @@
 import Blocks
-import SnapshotTesting
 import Foundation
+import SnapshotTesting
 
 /// A transport wrapper that captures snapshots of URL requests and responses for testing purposes.
-/// 
+///
 /// `SnapshottingTransport` intercepts network requests and responses, using the SnapshotTesting
-/// framework to assert snapshots of the request, returned data, and HTTP response. This is useful 
+/// framework to assert snapshots of the request, returned data, and HTTP response. This is useful
 /// for verifying network interactions in tests by capturing and comparing snapshots.
 ///
 public struct SnapshottingTransport: Transport {
     /// The file where the snapshot assertions are recorded.
     public let file: StaticString
-    
+
     /// The underlying transport being wrapped.
     public let wrapped: Transport
-    
+
     /// The name of the test function to associate snapshots with.
     public let testName: String
 

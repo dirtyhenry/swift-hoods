@@ -1,13 +1,13 @@
 import Blocks
-import SnapshotTesting
-import Testing
 import Foundation
 import HoodsTestsTools
+import SnapshotTesting
+import Testing
 
 @Suite("SnapshottingTransport")
 struct SnapshottingTransportTests {
     @Test("wraps MockTransport and snapshots request/response")
-    func testSnapshotsMockTransport() async throws {
+    func snapshotsMockTransport() async throws {
         // Arrange: Create a MockTransport with known data
         let mockData = Data("Hello, snapshot!".utf8)
         let mockResponse = HTTPURLResponse(
