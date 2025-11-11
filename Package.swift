@@ -88,7 +88,11 @@ let package = Package(
         .testTarget(
             name: "HoodsTests",
             dependencies: ["Hoods", "HoodsTestsTools"],
-            resources: [.process("Resources")]
+            exclude: ["Hoods.xctestplan"],
+            resources: [
+                .process("Resources"),
+                .process("__Snapshots__")
+            ]
         )
     ]
 )
