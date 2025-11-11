@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "HoodsCLI",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v15)
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.3.0"),

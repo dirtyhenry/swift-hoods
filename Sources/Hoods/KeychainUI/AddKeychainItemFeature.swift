@@ -19,7 +19,7 @@ struct AddKeychainItemFeature {
         case setSecret(String)
 
         case delegate(Delegate)
-        public enum Delegate: Equatable {
+        enum Delegate: Equatable {
             case didSaveKeychainItem
         }
     }

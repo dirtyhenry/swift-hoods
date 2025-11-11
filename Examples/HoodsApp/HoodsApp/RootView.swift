@@ -36,11 +36,7 @@ struct RootView: View {
         } detail: {
             switch currentPath {
             case .keychainUI:
-                KeychainUIView(
-                    store: Store(initialState: KeychainUIFeature.State()) {
-                        KeychainUIFeature()
-                    }
-                )
+                PublicKeychainUIView()
             case .mailer:
                 MailButtonDemoView(
                     store: Store(initialState: MailButtonDemoFeature.State()) {

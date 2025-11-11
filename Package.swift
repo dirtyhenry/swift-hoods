@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "swift-hoods",
     platforms: [
-        .macOS(.v13),
+        .macOS(.v15),
         .iOS(.v18)
     ],
     products: [

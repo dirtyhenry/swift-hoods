@@ -2,7 +2,7 @@ import ArgumentParser
 import Hoods
 
 struct Greet: ParsableCommand {
-    static var configuration = CommandConfiguration(
+    static let configuration = CommandConfiguration(
         commandName: "greet",
         abstract: "Greet demo from Hoods."
     )

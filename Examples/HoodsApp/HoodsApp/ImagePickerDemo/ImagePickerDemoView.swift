@@ -4,23 +4,21 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ImagePickerDemoView: View {
-    let store: StoreOf<ImagePickerDemoFeature>
-    @ObservedObject var viewStore: ViewStoreOf<ImagePickerDemoFeature>
+    @Bindable var store: StoreOf<ImagePickerDemoFeature>
 
     init(store: StoreOf<ImagePickerDemoFeature>) {
         self.store = store
-        viewStore = ViewStore(self.store, observe: { $0 })
     }
 
     var body: some View {
         NavigationStack {
-            if viewStore.latestPhoto == nil {
+            if store.latestPhoto == nil {
                 VStack(spacing: 32) {
                     Button("Take Photo") {
-                        viewStore.send(.takePhotoButtonTapped)
+                        store.send(.takePhotoButtonTapped)
                     }
 
-                    switch viewStore.status {
+                    switch store.status {
                     case .notDetermined:
                         Text("Access not determined")
                     case .authorized:
@@ -35,32 +33,26 @@ struct ImagePickerDemoView: View {
                 }
             } else {
                 VStack {
-                    Image(uiImage: viewStore.latestPhoto!)
+                    Image(uiImage: store.latestPhoto!)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 200)
                     Button("Retake Photo") {
-                        viewStore.send(.takePhotoButtonTapped)
+                        store.send(.takePhotoButtonTapped)
                     }
                 }
             }
         }
-        .sheet(
-            store: store.scope(
-                state: \.$takePhoto,
-                action: { .usePhoto($0) }
-            )) { takePhotoStore in
-                NavigationStack {
-                    ImagePickerView(store: takePhotoStore)
-                }
+        .sheet(item: $store.scope(state: \.takePhoto, action: \.usePhoto)) { takePhotoStore in
+            NavigationStack {
+                ImagePickerView(store: takePhotoStore)
+            }
         }
     }
 }
 
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImagePickerDemoView(store: Store(initialState: ImagePickerDemoFeature.State()) {
-            ImagePickerDemoFeature()
-        })
-    }
+#Preview {
+    ImagePickerDemoView(store: Store(initialState: ImagePickerDemoFeature.State()) {
+        ImagePickerDemoFeature()
+    })
 }

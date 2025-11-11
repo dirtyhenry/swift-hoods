@@ -1,11 +1,13 @@
 import ComposableArchitecture
 import Foundation
 import Hoods
+import SwiftUI
 
 @Reducer
 struct CopyTextDemoFeature {
+    @ObservableState
     struct State: Equatable {
-        @BindingState var text: String = "Please edit me."
+        var text: String = "Please edit me."
     }
 
     enum Action: BindableAction {
@@ -29,4 +31,29 @@ struct CopyTextDemoFeature {
             }
         }
     }
+}
+
+struct CopyTextDemoView: View {
+    @Bindable var store: StoreOf<CopyTextDemoFeature>
+
+    var body: some View {
+        VStack {
+            TextEditor(text: $store.text)
+            Button("Copy", systemImage: "doc.on.doc") {
+                store.send(.copyButtonTapped)
+            }
+        }
+        .padding()
+        .navigationTitle("CopyText Demo")
+    }
+}
+
+#Preview {
+    CopyTextDemoView(
+        store: Store(
+            initialState: CopyTextDemoFeature.State()
+        ) {
+            CopyTextDemoFeature()
+        }
+    )
 }

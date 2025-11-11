@@ -15,13 +15,13 @@ extension KeychainItem: Identifiable {
 @Reducer
 struct KeychainUIFeature {
     @ObservableState
-    public struct State: Equatable {
+    struct State: Equatable {
         @Presents var destination: Destination.State?
 
         var items: [KeychainItem]
         var errorMessage: String?
 
-        public init(items: [KeychainItem] = []) {
+        init(items: [KeychainItem] = []) {
             self.items = items
         }
     }
