@@ -134,10 +134,63 @@ Key external dependencies:
 - `Yams`: YAML parsing
 - `jwt-kit`: JWT operations
 
+## Development Workflow
+
+### Before Creating a Pull Request
+
+Always complete these steps before creating a PR:
+
+1. **Format code**: Run `make format` to ensure consistent code style
+2. **Create changeset**: Add a changeset file in `.changeset/` directory to
+   document the change for version management
+3. **Verify build**: Ensure `swift build` completes without errors or warnings
+
+Example changeset file (`.changeset/my-change.md`):
+
+```markdown
+---
+"swift-hoods": patch
+---
+
+Brief description of the change.
+```
+
+### Handling SPM Unhandled Files Errors
+
+If you encounter the error
+`'swift-hoods': found N file(s) which are unhandled; explicitly declare them as resources or exclude from the target`:
+
+1. Identify the unhandled files (SPM will list them in the error)
+2. Determine if files should be resources or excluded:
+   - **Resources**: Test snapshots (`__Snapshots__`), assets, data files needed
+     at runtime
+   - **Exclude**: IDE-specific files (`.xctestplan`), documentation, build
+     artifacts
+
+3. Update the target in `Package.swift`:
+
+```swift
+.testTarget(
+    name: "HoodsTests",
+    dependencies: ["Hoods", "HoodsTestsTools"],
+    exclude: ["Hoods.xctestplan"],  // Must come before resources
+    resources: [
+        .process("Resources"),
+        .process("__Snapshots__")
+    ]
+)
+```
+
+**Important**: The `exclude` parameter must come before `resources` in
+`.testTarget()` declarations.
+
 ## Versioning
 
 The project uses Commitizen for conventional commits. Version is tracked in
 `.cz.toml` (currently 0.3.0).
+
+Changesets (`@changesets/cli`) are used for version management and changelog
+generation. Each PR should include a changeset file describing the change.
 
 ## Platform Requirements
 

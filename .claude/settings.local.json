@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash(swift:*)", "Bash(cat:*)"],
+    "allow": ["Bash(swift:*)", "Bash(cat:*)", "Bash(make format:*)"],
     "deny": [],
     "ask": []
   }
