@@ -1,22 +1,25 @@
 import Blocks
 import ComposableArchitecture
 import Foundation
+import SwiftUI
 
-public struct AddKeychainItemFeature: Reducer {
-    public struct State {
+@Reducer
+struct AddKeychainItemFeature {
+    @ObservableState
+    struct State: Equatable {
         var account: String
         var secret: String
         var errorMessage: String?
     }
 
-    public enum Action {
+    enum Action {
         case cancelButtonTapped
         case saveButtonTapped
         case setAccount(String)
         case setSecret(String)
 
         case delegate(Delegate)
-        public enum Delegate: Equatable {
+        enum Delegate: Equatable {
             case didSaveKeychainItem
         }
     }
@@ -24,7 +27,7 @@ public struct AddKeychainItemFeature: Reducer {
     @Dependency(\.dismiss) var dismiss
     @Dependency(\.keychainGateway) var keychainGateway
 
-    public var body: some Reducer<State, Action> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .cancelButtonTapped:
@@ -38,7 +41,7 @@ public struct AddKeychainItemFeature: Reducer {
                     }
                     try keychainGateway.addItem(account: state.account, secret: secretData)
 
-                    return .run { send in
+                    return .run { [dismiss] send in
                         await send(.delegate(.didSaveKeychainItem))
                         await dismiss()
                     }
@@ -64,5 +67,35 @@ public struct AddKeychainItemFeature: Reducer {
     }
 }
 
-extension AddKeychainItemFeature.State: Equatable {}
-extension AddKeychainItemFeature.Action: Equatable {}
+struct AddKeychainItemView: View {
+    @Bindable var store: StoreOf<AddKeychainItemFeature>
+
+    var body: some View {
+        Form {
+            TextField("Account", text: $store.account.sending(\.setAccount))
+            SecureField("Secret", text: $store.secret.sending(\.setSecret))
+            Button("Save") {
+                store.send(.saveButtonTapped)
+            }
+            if let errorMessage = store.errorMessage {
+                Text(errorMessage)
+            }
+        }
+        .toolbar {
+            ToolbarItem {
+                Button("Cancel") {
+                    store.send(.cancelButtonTapped)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    AddKeychainItemView(store: Store(
+        initialState: AddKeychainItemFeature.State(account: "", secret: "")
+    ) {
+        AddKeychainItemFeature()
+    }
+    )
+}

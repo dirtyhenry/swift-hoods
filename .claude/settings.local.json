@@ -4,7 +4,8 @@
       "Bash(swift:*)",
       "Bash(cat:*)",
       "Bash(make format:*)",
-      "Bash(gh run view:*)"
+      "Bash(gh run view:*)",
+      "Bash(make test:*)"
     ],
     "deny": [],
     "ask": []

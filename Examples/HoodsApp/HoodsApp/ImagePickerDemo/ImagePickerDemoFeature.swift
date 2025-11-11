@@ -4,9 +4,11 @@ import ComposableArchitecture
 import Foundation
 import UIKit
 
-struct ImagePickerDemoFeature: Reducer {
-    struct State {
-        @PresentationState var takePhoto: ImagePickerFeature.State?
+@Reducer
+struct ImagePickerDemoFeature {
+    @ObservableState
+    struct State: Equatable {
+        @Presents var takePhoto: ImagePickerFeature.State?
         var latestPhoto: UIImage?
         var status: AVAuthorizationStatus
 
@@ -36,11 +38,8 @@ struct ImagePickerDemoFeature: Reducer {
                 return .none
             }
         }
-        .ifLet(\.$takePhoto, action: /Action.usePhoto) {
+        .ifLet(\.$takePhoto, action: \.usePhoto) {
             ImagePickerFeature()
         }
     }
 }
-
-extension ImagePickerDemoFeature.State: Equatable {}
-extension ImagePickerDemoFeature.Action: Equatable {}

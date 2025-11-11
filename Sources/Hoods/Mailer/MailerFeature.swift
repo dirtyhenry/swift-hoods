@@ -20,7 +20,9 @@ public struct MailerFeature {
         Reduce { _, action in
             switch action {
             case .interactionCompleted:
-                .run { _ in await dismiss() }
+                .run { [dismiss] _ in
+                    await dismiss()
+                }
             }
         }
     }

@@ -1,6 +1,8 @@
+import Blocks
 import ComposableArchitecture
 import Foundation
-import os
+import OSLog
+import SwiftUI
 
 let keychainUILogger = Logger(subsystem: "swift-hoods", category: "KeychainUI")
 
@@ -11,19 +13,20 @@ extension KeychainItem: Identifiable {
 }
 
 @Reducer
-public struct KeychainUIFeature {
-    public struct State: Equatable {
-        @PresentationState var destination: Destination.State?
+struct KeychainUIFeature {
+    @ObservableState
+    struct State: Equatable {
+        @Presents var destination: Destination.State?
 
         var items: [KeychainItem]
         var errorMessage: String?
 
-        public init(items: [KeychainItem] = []) {
+        init(items: [KeychainItem] = []) {
             self.items = items
         }
     }
 
-    public enum Action {
+    enum Action {
         case listKeychainItemsButtonTapped
         case addButtonTapped
 
@@ -32,9 +35,7 @@ public struct KeychainUIFeature {
 
     @Dependency(\.keychainGateway) var keychainGateway
 
-    public init() {}
-
-    public var body: some Reducer<State, Action> {
+    var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .listKeychainItemsButtonTapped:
@@ -65,29 +66,95 @@ public struct KeychainUIFeature {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: /Action.destination) {
-            Destination()
+        .ifLet(\.$destination, action: \.destination) {
+            Destination.body
         }
     }
 }
 
-public extension KeychainUIFeature {
-    struct Destination: Reducer {
-        public enum State: Equatable {
-            case addKeychainItem(AddKeychainItemFeature.State)
-        }
+extension KeychainUIFeature {
+    @Reducer
+    enum Destination {
+        case addKeychainItem(AddKeychainItemFeature)
+    }
+}
 
-        public enum Action: Equatable {
-            case addKeychainItem(AddKeychainItemFeature.Action)
-        }
+extension KeychainUIFeature.Destination.State: Equatable {}
 
-        public var body: some ReducerOf<Self> {
-            Scope(
-                state: /State.addKeychainItem,
-                action: /Action.addKeychainItem
-            ) {
-                AddKeychainItemFeature()
+struct KeychainUIView: View {
+    @Bindable var store: StoreOf<KeychainUIFeature>
+
+    init(store: StoreOf<KeychainUIFeature>) {
+        self.store = store
+    }
+
+    var body: some View {
+        VStack {
+            if store.items.isEmpty {
+                VStack {
+                    Text("No keychain items were found.")
+                }
+            } else {
+                List {
+                    ForEach(store.items) { item in
+                        VStack(alignment: .leading) {
+                            Text(item.itemClass?.description ?? "n/a")
+                                .font(.caption)
+                            HStack {
+                                Text(item.account)
+                                Spacer()
+                                Text(format(secret: item.secret))
+                            }
+                            Text(item.rawProps?.description ?? "n/a")
+                                .font(.caption2)
+                        }
+                    }
+                }
+            }
+            if let errorMessage = store.errorMessage {
+                Text(errorMessage)
             }
         }
+        .navigationTitle("Issues")
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    store.send(.addButtonTapped)
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .sheet(
+            item: $store.scope(state: \.destination?.addKeychainItem, action: \.destination.addKeychainItem)
+        ) { addKeychainItemStore in
+            NavigationView {
+                AddKeychainItemView(store: addKeychainItemStore)
+            }
+        }
+        .onAppear {
+            store.send(.listKeychainItemsButtonTapped)
+        }
+    }
+
+    func format(secret: Data?) -> String {
+        guard let secret else {
+            return "🔐"
+        }
+
+        if let string = String(data: secret, encoding: .utf8) {
+            return string
+        }
+
+        return DataFormatter.hexadecimalString(from: secret)
+    }
+}
+
+#Preview {
+    NavigationStack {
+        KeychainUIView(store: Store(
+            initialState: KeychainUIFeature.State()
+        ) { KeychainUIFeature() }
+        )
     }
 }

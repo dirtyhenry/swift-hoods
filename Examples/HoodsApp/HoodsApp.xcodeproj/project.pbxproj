@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0004E7C22B86A2E8008EBCF9 /* CopyTextDemoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C12B86A2E8008EBCF9 /* CopyTextDemoFeature.swift */; };
-		0004E7C42B86A2F4008EBCF9 /* CopyTextDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */; };
 		0004E7C62B86A313008EBCF9 /* CopyTextDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */; };
 		004A5F3B2EC22E9A00AB9C54 /* HoodsTestsTools in Frameworks */ = {isa = PBXBuildFile; productRef = 004A5F3A2EC22E9A00AB9C54 /* HoodsTestsTools */; };
 		004F27742AE6DF3A00D118BA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 004F27732AE6DF3A00D118BA /* ComposableArchitecture */; };
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		0004E7C12B86A2E8008EBCF9 /* CopyTextDemoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoFeature.swift; sourceTree = "<group>"; };
-		0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoView.swift; sourceTree = "<group>"; };
 		0004E7C52B86A313008EBCF9 /* CopyTextDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyTextDemoTests.swift; sourceTree = "<group>"; };
 		0068F7122D1486A000295745 /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
 		0068F71A2D1574A600295745 /* CounterTabFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterTabFeatureTests.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				0004E7C12B86A2E8008EBCF9 /* CopyTextDemoFeature.swift */,
-				0004E7C32B86A2F4008EBCF9 /* CopyTextDemoView.swift */,
 			);
 			path = CopyTextDemo;
 			sourceTree = "<group>";
@@ -308,7 +305,6 @@
 				00D1207A2C88EA5A001CDA65 /* ImagePickerDemoFeature.swift in Sources */,
 				00D120772C88E99C001CDA65 /* ImagePickerView.swift in Sources */,
 				00DCF4422B62CFED00082C13 /* MailButtonDemoView.swift in Sources */,
-				0004E7C42B86A2F4008EBCF9 /* CopyTextDemoView.swift in Sources */,
 				00F84B002A66D7B100A7EC95 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +530,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoodsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoodsApp";
 			};
@@ -554,7 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.mickf.HoodsAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoodsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HoodsApp";
 			};

@@ -64,7 +64,7 @@ extension KeychainItem.ItemClass: CustomStringConvertible {
 /**
  A protocol that defines a set of methods for interacting with the iOS Keychain.
  */
-protocol KeychainGateway {
+protocol KeychainGateway: Sendable {
     func listItems() throws -> [KeychainItem]
 
     func addItem(account: String, secret: Data) throws
@@ -148,7 +148,7 @@ struct LiveKeychainGateway: KeychainGateway {
 // - MARK: TCA Dependency
 
 enum KeychainGatewayKey: DependencyKey {
-    static let liveValue: KeychainGateway = LiveKeychainGateway()
+    static let liveValue: any KeychainGateway = LiveKeychainGateway()
 }
 
 extension DependencyValues {
