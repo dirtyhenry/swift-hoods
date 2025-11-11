@@ -1,6 +1,11 @@
 {
   "permissions": {
-    "allow": ["Bash(swift:*)", "Bash(cat:*)", "Bash(make format:*)"],
+    "allow": [
+      "Bash(swift:*)",
+      "Bash(cat:*)",
+      "Bash(make format:*)",
+      "Bash(gh run view:*)"
+    ],
     "deny": [],
     "ask": []
   }
