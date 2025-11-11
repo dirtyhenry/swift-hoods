@@ -1,17 +1,18 @@
 import Blocks
 import ComposableArchitecture
 import Foundation
+import SwiftUI
 
 @Reducer
-public struct AddKeychainItemFeature {
+struct AddKeychainItemFeature {
     @ObservableState
-    public struct State: Equatable {
+    struct State: Equatable {
         var account: String
         var secret: String
         var errorMessage: String?
     }
 
-    public enum Action {
+    enum Action {
         case cancelButtonTapped
         case saveButtonTapped
         case setAccount(String)
@@ -26,13 +27,11 @@ public struct AddKeychainItemFeature {
     @Dependency(\.dismiss) var dismiss
     @Dependency(\.keychainGateway) var keychainGateway
 
-    public var body: some ReducerOf<Self> {
+    var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .cancelButtonTapped:
-                return .run { [dismiss] _ in
-                    await dismiss()
-                }
+                return .run { _ in await dismiss() }
 
             case .saveButtonTapped:
                 keychainUILogger.debug(".saveButtonTapped")
@@ -66,4 +65,37 @@ public struct AddKeychainItemFeature {
             }
         }
     }
+}
+
+struct AddKeychainItemView: View {
+    @Bindable var store: StoreOf<AddKeychainItemFeature>
+
+    var body: some View {
+        Form {
+            TextField("Account", text: $store.account.sending(\.setAccount))
+            SecureField("Secret", text: $store.secret.sending(\.setSecret))
+            Button("Save") {
+                store.send(.saveButtonTapped)
+            }
+            if let errorMessage = store.errorMessage {
+                Text(errorMessage)
+            }
+        }
+        .toolbar {
+            ToolbarItem {
+                Button("Cancel") {
+                    store.send(.cancelButtonTapped)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    AddKeychainItemView(store: Store(
+        initialState: AddKeychainItemFeature.State(account: "", secret: "")
+    ) {
+        AddKeychainItemFeature()
+    }
+    )
 }

@@ -7,7 +7,7 @@ let package = Package(
     name: "swift-hoods",
     platforms: [
         .macOS(.v13),
-        .iOS(.v15)
+        .iOS(.v18)
     ],
     products: [
         .library(
