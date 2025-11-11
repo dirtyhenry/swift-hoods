@@ -49,9 +49,9 @@ jobs:
         run: xcrun xcodebuild -showdestinations -scheme Hoods
       - name: Build debug version
         run: |
-          set -o pipefail && xcrun xcodebuild build \
+          set -o pipefail && xcrun xcodebuild \
             -skipMacroValidation -skipPackagePluginValidation \
-            -skipMacroValidation build -scheme Hoods -destination generic/platform=ios
+            build -scheme Hoods -destination generic/platform=ios
       - name: Test debug version
         run: |
           echo "$TEST_IOS_VERSION"

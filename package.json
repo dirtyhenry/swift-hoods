@@ -1,0 +1,10 @@
+{
+  "name": "swift-hoods",
+  "private": true,
+  "version": "0.3.0",
+  "packageManager": "yarn@4.4.1",
+  "dependencies": {
+    "@changesets/cli": "^2.29.7",
+    "prettier": "^3.6.2"
+  }
+}

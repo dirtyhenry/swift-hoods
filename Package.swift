@@ -22,7 +22,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/dirtyhenry/swift-blocks",
-            branch: "main"
+            from: "0.8.0"
         ),
         .package(
             url: "https://github.com/apple/swift-argument-parser",
@@ -31,6 +31,10 @@ let package = Package(
         .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture",
             from: "1.6.0"
+        ),
+        .package(
+            url: "https://github.com/pointfreeco/swift-snapshot-testing",
+            from: "1.18.0"
         ),
         .package(
             url: "https://github.com/jpsim/Yams.git",
@@ -74,13 +78,21 @@ let package = Package(
                 .product(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
+                ),
+                .product(
+                    name: "SnapshotTesting",
+                    package: "swift-snapshot-testing"
                 )
             ]
         ),
         .testTarget(
             name: "HoodsTests",
             dependencies: ["Hoods", "HoodsTestsTools"],
-            resources: [.process("Resources")]
+            exclude: ["Hoods.xctestplan"],
+            resources: [
+                .process("Resources"),
+                .process("__Snapshots__")
+            ]
         )
     ]
 )

@@ -32,7 +32,7 @@ public struct FrontMatterCMark<FrontMatter: Codable> {
 }
 
 enum FrontMatterCMarkUtils {
-    public static let frontMatterDelimiter = "---"
+    static let frontMatterDelimiter = "---"
 }
 
 /// A decoder for extracting front matter and CommonMark text from a given data.

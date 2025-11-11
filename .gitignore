@@ -5,3 +5,16 @@
 xcuserdata/
 DerivedData/
 .swiftpm
+
+# Yarn when not using Zero-installs
+# 📜 https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Dependency directories
+node_modules/
