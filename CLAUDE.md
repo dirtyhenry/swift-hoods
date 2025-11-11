@@ -95,6 +95,45 @@ extension DependencyValues {
 }
 ```
 
+#### TCA Modernization (TCA 1.0+)
+
+This codebase uses modern TCA macros introduced in TCA 1.0:
+
+- **@Reducer**: All reducers use the `@Reducer` macro for compile-time safety
+  and automatic conformance synthesis
+- **@ObservableState**: State structs use `@ObservableState` for SwiftUI
+  observation, eliminating the need for manual `ViewStore` management
+- **@Presents**: Navigation uses `@Presents` (formerly `@PresentationState`) for
+  presenting child features
+- **Key path syntax**: Actions use modern key path syntax (`\.case`) instead of
+  legacy case path syntax (`/State.case`)
+
+Example modern reducer structure:
+
+````swift
+@Reducer
+public struct MyFeature {
+    @ObservableState
+    public struct State: Equatable {
+        @Presents var destination: Destination.State?
+        // ... other state properties
+    }
+
+    public enum Action {
+        case destination(PresentationAction<Destination.Action>)
+        // ... other actions
+    }
+
+    public var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            // ... reducer logic
+        }
+        .ifLet(\.$destination, action: \.destination) {
+            Destination()
+        }
+    }
+}
+
 ### Core Components
 
 - **KeychainUI**: TCA-based keychain management UI (`KeychainUIFeature`,
@@ -153,7 +192,7 @@ Example changeset file (`.changeset/my-change.md`):
 ---
 
 Brief description of the change.
-```
+````
 
 ### Handling SPM Unhandled Files Errors
 
@@ -194,6 +233,6 @@ generation. Each PR should include a changeset file describing the change.
 
 ## Platform Requirements
 
-- Swift 5.9+
+- Swift 6.0+
 - macOS 13+ / iOS 15+
 - Runs on both iOS Simulator and macOS

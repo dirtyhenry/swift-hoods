@@ -70,7 +70,7 @@ public struct MailButtonFeature {
                         return .send(.delegate(.shouldPresentError(.noURLFromMailtoComponents)))
                     }
 
-                    return .run { send in
+                    return .run { [openURL] send in
                         let isSuccess = await openURL(mailtoURL)
                         if !isSuccess {
                             await send(.delegate(.shouldPresentError(.openURLFailed)))

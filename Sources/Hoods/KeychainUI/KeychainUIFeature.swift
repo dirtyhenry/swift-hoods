@@ -65,26 +65,27 @@ public struct KeychainUIFeature {
                 return .none
             }
         }
-        .ifLet(\.$destination, action: /Action.destination) {
+        .ifLet(\.$destination, action: \.destination) {
             Destination()
         }
     }
 }
 
 public extension KeychainUIFeature {
-    struct Destination: Reducer {
+    @Reducer
+    struct Destination {
         public enum State: Equatable {
             case addKeychainItem(AddKeychainItemFeature.State)
         }
 
-        public enum Action: Equatable {
+        public enum Action {
             case addKeychainItem(AddKeychainItemFeature.Action)
         }
 
         public var body: some ReducerOf<Self> {
             Scope(
-                state: /State.addKeychainItem,
-                action: /Action.addKeychainItem
+                state: \.addKeychainItem,
+                action: \.addKeychainItem
             ) {
                 AddKeychainItemFeature()
             }

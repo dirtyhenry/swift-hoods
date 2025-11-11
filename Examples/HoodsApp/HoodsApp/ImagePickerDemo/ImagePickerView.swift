@@ -3,11 +3,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ImagePickerView: UIViewControllerRepresentable {
-    let viewStore: ViewStoreOf<ImagePickerFeature>
-
-    init(store: StoreOf<ImagePickerFeature>) {
-        viewStore = ViewStore(store, observe: { $0 })
-    }
+    let store: StoreOf<ImagePickerFeature>
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -20,14 +16,14 @@ struct ImagePickerView: UIViewControllerRepresentable {
     func updateUIViewController(_: UIImagePickerController, context _: Context) {}
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(viewStore: viewStore)
+        Coordinator(store: store)
     }
 
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        let viewStore: ViewStoreOf<ImagePickerFeature>
+        let store: StoreOf<ImagePickerFeature>
 
-        init(viewStore: ViewStoreOf<ImagePickerFeature>) {
-            self.viewStore = viewStore
+        init(store: StoreOf<ImagePickerFeature>) {
+            self.store = store
         }
 
         func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -35,12 +31,12 @@ struct ImagePickerView: UIViewControllerRepresentable {
                 return
             }
             print("imagePickerControllerDidFinishPickingMediaWithInfo: \(Thread.isMainThread)")
-            viewStore.send(.usePhotoButtonTapped(image))
+            store.send(.usePhotoButtonTapped(image))
         }
 
         func imagePickerControllerDidCancel(_: UIImagePickerController) {
             print("imagePickerControllerDidCancel: \(Thread.isMainThread)")
-            viewStore.send(.cancelButtonTapped)
+            store.send(.cancelButtonTapped)
         }
     }
 }

@@ -3,8 +3,9 @@ import ComposableArchitecture
 import Foundation
 import UIKit
 
-struct ImagePickerFeature: Reducer {
-    struct State {}
+@Reducer
+struct ImagePickerFeature {
+    struct State: Equatable {}
 
     enum Action {
         // MARK: - UI Interactions
@@ -39,6 +40,3 @@ struct ImagePickerFeature: Reducer {
         }
     }
 }
-
-extension ImagePickerFeature.State: Equatable {}
-extension ImagePickerFeature.Action: Equatable {}

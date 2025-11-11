@@ -2,8 +2,10 @@ import Blocks
 import ComposableArchitecture
 import Foundation
 
-public struct AddKeychainItemFeature: Reducer {
-    public struct State {
+@Reducer
+public struct AddKeychainItemFeature {
+    @ObservableState
+    public struct State: Equatable {
         var account: String
         var secret: String
         var errorMessage: String?
@@ -24,11 +26,13 @@ public struct AddKeychainItemFeature: Reducer {
     @Dependency(\.dismiss) var dismiss
     @Dependency(\.keychainGateway) var keychainGateway
 
-    public var body: some Reducer<State, Action> {
+    public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .cancelButtonTapped:
-                return .run { _ in await dismiss() }
+                return .run { [dismiss] _ in
+                    await dismiss()
+                }
 
             case .saveButtonTapped:
                 keychainUILogger.debug(".saveButtonTapped")
@@ -38,7 +42,7 @@ public struct AddKeychainItemFeature: Reducer {
                     }
                     try keychainGateway.addItem(account: state.account, secret: secretData)
 
-                    return .run { send in
+                    return .run { [dismiss] send in
                         await send(.delegate(.didSaveKeychainItem))
                         await dismiss()
                     }
@@ -63,6 +67,3 @@ public struct AddKeychainItemFeature: Reducer {
         }
     }
 }
-
-extension AddKeychainItemFeature.State: Equatable {}
-extension AddKeychainItemFeature.Action: Equatable {}

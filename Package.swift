@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version:6.0
 
 // 📜 https://github.com/apple/swift-package-manager/blob/main/Documentation/PackageDescription.md
 import PackageDescription
@@ -30,7 +30,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-composable-architecture",
-            from: "1.6.0"
+            from: "1.23.1"
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-snapshot-testing",
@@ -38,7 +38,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/jpsim/Yams.git",
-            from: "5.0.6"
+            from: "6.0.0"
         ),
         .package(
             url: "https://github.com/vapor/jwt-kit.git",
@@ -69,6 +69,9 @@ let package = Package(
                     name: "JWTKit",
                     package: "jwt-kit"
                 )
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
         .target(
@@ -83,6 +86,9 @@ let package = Package(
                     name: "SnapshotTesting",
                     package: "swift-snapshot-testing"
                 )
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
         .testTarget(
@@ -92,6 +98,9 @@ let package = Package(
             resources: [
                 .process("Resources"),
                 .process("__Snapshots__")
+            ],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         )
     ]

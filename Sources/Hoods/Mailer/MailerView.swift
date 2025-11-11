@@ -25,7 +25,7 @@ struct MailerView: UIViewControllerRepresentable {
         Coordinator(viewStore: viewStore)
     }
 
-    class Coordinator: NSObject, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
+    class Coordinator: NSObject, UINavigationControllerDelegate, @preconcurrency MFMailComposeViewControllerDelegate {
         let viewStore: ViewStoreOf<MailerFeature>
 
         init(viewStore: ViewStoreOf<MailerFeature>) {
